@@ -21,15 +21,15 @@
             <a href="#" onclick="openLoginForm();">Iniciar Sesión</a>
             <!--FORMULARIO DE INICIO DE SESION-->
             <div class="form-popup" id="loginForm">
-                <form action="#" class="form-container">
+                <form action="../Private/loginAuth.php" method="POST" class="form-container">
                     <h1>Iniciar Sesión</h1>
                     <div class="grid-container">
                         <div class="form-group">
                             <label for="email"><b>Email o Nombre de usuario</b></label>
-                            <input type="text" name="user" placeholder="ingrese el Email" required>
+                            <input type="text" name="user" placeholder="ingrese el Email">
 
                             <label for="psw"><b>Contraseña</b></label>
-                            <input type="password" name="psw" placeholder="ingrese la contraseña" required>
+                            <input type="password" name="psw" placeholder="ingrese la contraseña">
                             <div class="formBtn">
                                 <button type="submit" class="btn">Ingresar</button>
                                 <button type="button" class="btn cancel" onclick="closeLoginForm();">Cancelar</button>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group rigth">
                             <div>
-                                <button type="submit" class="btn User">Ingresar Anonimamente</button>
+                                <input type="submit" name="anon" class="btn User" value="Ingresar Anonimamente">
                             </div>
                             <div>
                                 <p>Si aun no posee una cuenta puede <button type="button" class="btn Register" onclick="openRegisterForm();">Registrarse aquí.</button></p>
