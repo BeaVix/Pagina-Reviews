@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    overflow: hidden;
+    display: flex;
+	align-items: center;
+	justify-content: space-between;
+    background-color: #f9ded3;
+}
+
+.navbar a, img {
+    float: left;
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: #fdd1b6;
+    color: black;
+}
+
+
+.navbar .icon {
+    display: none;
+}
+
+.form-popup {
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: 3px solid #f9ded3;
+    border-radius: 10px;
+    z-index: 9;
+}
+
+.form-container {
+    width: auto;
+    padding: 10px;
+    background-color: white;
+}
+
+.form-container .grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.form-container h1 {
+    color: #89abb4;
+    text-align: center;
+}
+
+.form-container .rigth{
+    border-left-style: groove;
+}
+
+.form-container label {
+    color: #89abb4d0;
+}
+
+.form-container .form-group{
+    max-width: 300px;
+    padding: 20px;
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: whitesmoke;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
+.form-container .cancel {
+    background-color: red;
+}
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+.form-container .btnUser{
+    background-color: aliceblue;
+}
+
+.form-container .formBtn{
+    display: flex;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .navbar a:not(:first-child) {display: none;}
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar.responsive {position: relative;}
+    .navbar.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .navbar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
