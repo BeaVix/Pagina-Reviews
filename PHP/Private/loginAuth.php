@@ -28,7 +28,7 @@
 			if(loginVeirfy($query, $email, $pass)){
 				echo('Sesión iniciada');
 			} else{
-				echo('Error iniciando sesión: Contraseña y/o nombre incorrectas\n');
+				echo('Error iniciando sesión: Contraseña y/o nombre incorrectas');
 			}
 		}
 	}

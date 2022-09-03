@@ -50,15 +50,18 @@
                                                     <button type="button" class="btn cancel" onclick="limpiarForm();" >Cancelar</button>
                                                 </div>
                                         </div>
+                                        </form>
                                         <div class="col-sm-6 rigth text-center">
                                             <div class="mt-5">
-                                                <input type="submit" name="anon" class="btn User" value="Ingresar Anonimamente">
+                                                <form action="../Private/loginAuth.php" method="POST">
+                                                    <input type="hidden" name="anon" value="1">
+                                                    <input type="submit" class="btn User" value="Ingresar Anonimamente">
+                                                </form>
                                                 <p class="text-center">ó<p>
                                                 <button type="button" class="btn signin" onclick="openModal();">Registrarse</button>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
                             </li>
                         </ul>
                     </li>
@@ -70,7 +73,7 @@
     <!--FORMULARIO DE REGISTRO-->
     <div class="modal">
         <div class="modal-content">
-            <form action="#" class="form-container">
+            <form action="../Private/registrar.php" method="POST" class="form-container">
                 <h1>Registrarse</h1>
 
                 <label for="nombre">Nombre de usuario</label>
