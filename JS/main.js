@@ -1,31 +1,42 @@
 // responsive navbar
 function menuResponsive() {
-    var nav = document.getElementById("nav");
+var nav = document.getElementById("nav");
     if (nav.className === "navbar") {
-      nav.className += "responsive";
+        nav.className += "responsive";
     } else {
-      nav.className = "navbar";
+        nav.className = "navbar";
     }
-  }
-
-//PopUp forms
-
-const login = document.getElementById("loginForm");
-const register = document.getElementById("registerForm");
-
-function openLoginForm() {
-    login.style.display = "block";
 }
 
-function closeLoginForm() {
-    login.style.display = "none";
+//modal form
+
+const ventana = document.querySelector(".modal");
+const modal = document.querySelector(".modal-content");
+const formRegistro = document.querySelector(".form-container");
+
+function openModal() {
+    modal.style.display = "block";
+    ventana.style.display = "block";
+    console.log('modal abierto');
 }
 
-function openRegisterForm() {
-    closeLoginForm();
-    login.style.display = "block";
+function closeModal() {
+    modal.style.display = "none";
+    ventana.style.display = "none";
+    form.reset(); /*mirar*/
+    console.log('modal cerrado');
 }
 
-function closeRegisterForm() {
-    login.style.display = "none";
+/* cierra el formulario cuando el usuario de click fuera de la ventana. */
+ventana.onclick = function(event) {
+    if (event.target == ventana) {
+        ventana.style.display = "none";
+        closeModal();
+        console.log('cerrar todo');
+    }
 }
+
+function limpiarForm() {
+    form.reset();
+}
+
