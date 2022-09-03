@@ -3,15 +3,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*Nav*/
+
 .navbar {
-    overflow: hidden;
-    display: flex;
-	align-items: center;
-	justify-content: space-between;
+    height: 7.5vh;
     background-color: #f9ded3;
 }
 
 .navbar a, img {
+    height: max-content;
     float: left;
     display: block;
     color: white;
@@ -27,90 +27,130 @@ body {
     color: black;
 }
 
-
 .navbar .icon {
     display: none;
 }
 
-.form-popup {
-    display: none;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    border: 3px solid #f9ded3;
-    border-radius: 10px;
-    z-index: 9;
-}
+/*Dropdown*/
 
-.form-container {
-    width: auto;
-    padding: 10px;
+.dropdown-item{
+    width: 550px;
+    background-color: white;
+}
+.dropdown-item:hover{
     background-color: white;
 }
 
-.form-container .grid-container{
-    display: grid;
-    grid-template-columns: auto auto;
+.dropdown-item:active{
+    background-color: white;
 }
 
-.form-container h1 {
+.row{
+    padding: 15px;
+}
+
+.rigth{
+    border-left-style: groove;
+    padding-top: 30px;
+}
+
+/*Formulario*/
+
+h1 {
     color: #89abb4;
     text-align: center;
 }
 
-.form-container .rigth{
-    border-left-style: groove;
+hr{
+    border: 1px solid;
 }
 
-.form-container label {
+label {
     color: #89abb4d0;
 }
 
-.form-container .form-group{
-    max-width: 300px;
-    padding: 20px;
-}
-
-.form-container input[type=text], .form-container input[type=password] {
-    width: 90%;
+input[type=text], input[type=email], input[type=password] {
+    width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
     background: whitesmoke;
 }
 
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }
 
-.form-container .btn {
-    background-color: #04AA6D;
+/*Botones*/
+
+.btn {
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 90%;
     margin-bottom:10px;
+    border-radius: 0px;
     opacity: 0.8;
 }
 
-.form-container .cancel {
-    background-color: red;
-}
-.form-container .btn:hover, .open-button:hover {
-    opacity: 1;
+.success{
+    background-color: #04aa6dc7;
 }
 
-.form-container .btnUser{
-    background-color: aliceblue;
+.success:hover{
+    background-color: #04aa6d;
+    color: white;
 }
 
-.form-container .formBtn{
+.cancel {
+    background-color: rgba(255, 0, 0, 0.822);
+}
+
+.cancel:hover{
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.User{
+    background-color: #c7b6bec4;
+}
+
+.User:hover{
+    background-color: #c7b6be;
+    color: white;
+}
+
+.signin{
+    background-color: #a09299d3;
+}
+
+.signin:hover{
+    background-color: #a09299;
+    color: white;
+}
+
+.formBtn{
     display: flex;
 }
 
+/*Modal*/
 
+.modal{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.158);
+}
+
+.modal-content{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+	transform: translate(-55%, -50%);
+    width: 550px;
+    padding: 20px;
+}
 
 @media screen and (max-width: 600px) {
     .navbar a:not(:first-child) {display: none;}
