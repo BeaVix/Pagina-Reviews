@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                            <a class="nav-link" aria-current="page" href="../Public/index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Peliculas</a>
