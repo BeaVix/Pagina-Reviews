@@ -1,6 +1,6 @@
 <?php 
     define("BDDNombre", 'ReviewsBD');
     define("BDDServer", 'localhost');
-    define("BDDUser", 'root');
+    define("BDDUser", 'phpmyadmin');
     define('BDDPass', 'usbw');
 ?>

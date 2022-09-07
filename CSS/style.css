@@ -218,10 +218,17 @@ textarea:focus {
     outline: none;
 }
 
+/*Resto de paginas*/
 
 .Poster{
     width: 14rem;
     height: 22rem;
+}
+
+.userPerfil{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
 }
 
 

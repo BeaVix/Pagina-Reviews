@@ -52,7 +52,6 @@
                                                 </div>
                                                 <span id="login-form-error" class="d-none">*Nombre de usuario y/o contraseña incorrectos</span>
                                         </div>
-                                        </form>
                                         <div class="col-sm-6 rigth text-center">
                                             <div class="mt-5">
                                                 <button class="btn User" id="anon-btn">Ingresar Anonimamente</button>
@@ -73,16 +72,16 @@
     <!--FORMULARIO DE REGISTRO-->
     <div class="modal">
         <div class="modal-content">
-            <form action="../Private/registrar.php" method="POST" class="form-container">
+            <form action="#" class="form-container">
                 <h1>Registrarse</h1>
 
                 <label for="nombre">Nombre de usuario</label>
-                <input type="text" name="nombre" placeholder="ingrese el nombre de usuario" required>
+                <input type="text" name="nombre" placeholder="ingrese el nombre de usuario">
 
                 <label for="email">Email</label>
-                <input type="email" name="email" placeholder="ingrese el Email" required>
+                <input type="email" name="email" placeholder="ingrese el Email">
                 <label for="psw">Contraseña</label>
-                <input type="password" name="psw" placeholder="ingrese la contraseña" required>
+                <input type="password" name="psw" placeholder="ingrese la contraseña">
 
                 <div class="formBtn">
                     <button type="submit" class="btn success">Registrarse</button>

@@ -32,13 +32,44 @@ include '../Templates/header.php';
             </div>
           </form>
         </div>
-      </div>
-      <div class="card-body border-top pt-2">
+        <div class="card-body border-top pt-2">
         <div class="d-flex">
           <img src="../../Resources/imgs/logo.png" class="card-img-user" alt="...">
           <h5 class="card-p m-2">Nombre de usuario</b></h5>
         </div>
+        <div class="text-start m-2">Rating: stars rating</div>
         <p class="text-start text-post"><small>Gracias a un descubrimiento, un grupo de científicos y exploradores, encabezados por Cooper, se embarcan en un viaje espacial para encontrar un lugar con las condiciones necesarias para reemplazar a la Tierra y comenzar una nueva vida allí.</small></p>
+        <div class="card-body">
+          <div class="border-top d-flex">
+            <button class="btn comment text-start" type="button" data-bs-toggle="collapse" data-bs-target="#Userdemo" aria-expanded="false" aria-controls="demo">
+                <i class='bx bx-comment' style='color: black'></i>CantComment
+            </button>
+            <div class="btn-group">
+                <button type="button" class="btn dislike" onclick="">
+                    <i class='bx bx-dislike' style='color: black'></i>
+                </button>
+                <button type="button" class="btn like" onclick="">
+                    <i class='bx bx-like' style='color: black'></i>
+                </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapse" id="Userdemo">
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-9">
+                    <textarea type="text" class="" placeholder="Comenta aquí.." name="comment"></textarea>
+                </div>
+                <div class="col-2 pt-3">
+                    <input type="submit" class="btn-comment" placeholder="Comentar" name="comment"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </div>
