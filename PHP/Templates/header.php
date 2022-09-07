@@ -25,10 +25,10 @@
                             <a class="nav-link" aria-current="page" href="../Public/index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Peliculas</a>
+                            <a class="nav-link" href="../Public/peliculas.php">Peliculas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Libros</a>
+                            <a class="nav-link" href="../Public/libros.php">Libros</a>
                         </li>
             </div>  <!--FORMULARIO DE INGRESO-->
                     <li class="nav-item d-flex dropdown">
