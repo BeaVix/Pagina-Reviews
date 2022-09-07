@@ -1,29 +1,35 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: scroll;
 }
 
 /*Nav*/
 
 .navbar {
-    height: 7.5vh;
-    background-color: #f9ded3;
+    height: 7.2vh;
+    background-color: #eba059;
 }
 
-.navbar a, img {
+.navbar a {
     height: max-content;
     float: left;
     display: block;
     color: white;
     font-weight: bold;
     text-align: center;
-    padding: 20px 16px;
+    padding: 20px 20px;
     text-decoration: none;
     font-size: 17px;
 }
 
+.navbar img {
+    height: 150px;
+    width:  150px;
+}
+
 .navbar a:hover {
-    background-color: #fdd1b6;
+    background-color: rgba(255, 255, 255, 0.486);
     color: black;
 }
 
@@ -32,6 +38,10 @@ body {
 }
 
 /*Dropdown*/
+
+.dropdown-menu{
+    border: 1px solid #89abb4d0;
+}
 
 .dropdown-item{
     width: 550px;
@@ -57,7 +67,7 @@ body {
 /*Formulario*/
 
 h1 {
-    color: #89abb4;
+    color: #7c7c7c;
     text-align: center;
 }
 
@@ -66,7 +76,7 @@ hr{
 }
 
 label {
-    color: #89abb4d0;
+    color: #7c7c7c;
 }
 
 input[type=text], input[type=email], input[type=password] {
@@ -78,19 +88,18 @@ input[type=text], input[type=email], input[type=password] {
 }
 
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
+    background-color: rgba(245, 245, 245, 0.822);
+    outline:1px solid #c7b6be;
 }
 
 /*Botones*/
 
 .btn {
     color: white;
-    padding: 16px 20px;
+    padding: 16px 14px;
     border: none;
     cursor: pointer;
     width: 90%;
-    margin-bottom:10px;
     border-radius: 0px;
     opacity: 0.8;
 }
@@ -114,25 +123,38 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
 }
 
 .User{
-    background-color: #c7b6bec4;
+    background-color: #d13b00c9;
+    margin-bottom:10px;
 }
 
 .User:hover{
-    background-color: #c7b6be;
+    background-color: #d13b00;
     color: white;
 }
 
 .signin{
-    background-color: #a09299d3;
+    background-color: #899ab4de;
 }
 
 .signin:hover{
-    background-color: #a09299;
+    background-color: #899ab4;
     color: white;
 }
 
 .formBtn{
     display: flex;
+}
+
+.btn-comment{
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #eba059d2;
+}
+
+.btn-comment:hover {
+    background-color: #eba059;
 }
 
 /*Modal*/
@@ -151,6 +173,57 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
     width: 550px;
     padding: 20px;
 }
+
+
+/*Index*/
+
+.text-books{
+    margin-top: 150px;
+}
+
+.text-post{
+    margin-top: 10px;
+}
+
+.img-carrousel{
+    height: 14rem;
+}
+
+.card-img{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.card-img-user{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.d-flex{
+    align-items: center;
+}
+
+textarea{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: whitesmoke;
+}
+
+textarea:focus {
+    background-color: rgba(245, 245, 245, 0.822);
+    outline: none;
+}
+
+
+.Poster{
+    width: 14rem;
+    height: 22rem;
+}
+
 
 @media screen and (max-width: 600px) {
     .navbar a:not(:first-child) {display: none;}

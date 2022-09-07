@@ -5,9 +5,9 @@
 	
 	namespace BDD;
 	use PDO;
-use PDOException;
+	use PDOException;
 
-	class database{
+	class Database{
 		public $BDDCon; //Conexion PDO a la base de datos
 
 		function __construct(){
@@ -16,7 +16,7 @@ use PDOException;
 
 		// Realiza una nueva connexión
 		protected function newConnection(){
-			include '../../Config/BDD_config.php'; //Busca archivo en carpeta /Config
+			include_once '../../Config/BDD_config.php'; //Busca archivo en carpeta /Config
 			$conn = "mysql:dbname=".BDDNombre.";host=".BDDServer;
 			try{
 				$this->BDDCon = new PDO($conn, BDDUser, BDDPass, 

@@ -10,7 +10,7 @@
 	if(isset($_POST['anon'])){
 		$sess = new session();
 		$sess->anonLogin();
-		echo('Sesión iniciada como Anonimo');
+		echo('1');
 	}else{
 
 		$email = $_POST['user'];
@@ -22,13 +22,13 @@
 		$query = $db->getUserEmail($email);
 
 		if(loginVeirfy($query, $email, $pass)){
-			echo('Sesión iniciada');
+			echo('1');
 		}else{
 			$query = $db->getUserName($email);
 			if(loginVeirfy($query, $email, $pass)){
-				echo('Sesión iniciada');
+				echo('1');
 			} else{
-				echo('Error iniciando sesión: Contraseña y/o nombre incorrectas');
+				echo('0');
 			}
 		}
 	}
