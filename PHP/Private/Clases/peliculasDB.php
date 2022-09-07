@@ -8,8 +8,8 @@
     class Peliculas extends Database{
 
         public function getPelis(){
-            $sql = "SELECT *, generos.Nombre FROM peliculas INNER JOIN generos 
-                    ON peliculas.ID_Genero = generos.ID";
+            $sql = "SELECT *, Generos.Nombre FROM Peliculas INNER JOIN Generos 
+                    ON Peliculas.ID_Genero = Generos.ID";
             $stmt = $this->BDDCon->prepare($sql);
             $stmt->execute();
 
