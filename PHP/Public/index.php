@@ -74,9 +74,11 @@
     <!--Peliculas y libros recomendados-->
     <div class="col-sm-5">
         <!--Peliculas-->
-<?php foreach($res as $row){?>
+        
         <div><b>Peliculas recomendados</b></div>
-
+        
+<?php foreach($res as $row) { ?>
+        
         <div id="demo" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="2000">
