@@ -1,18 +1,32 @@
 <?php
-include '../Templates/header.php';
+    include '../Templates/header.php';
+    include '../Private/Clases/librosDB.php';
+    include '../Private/Clases/peliculasDB.php';
+
+    use BDD\Tables\Peliculas;
+    use BDD\Tables\Libros;
+
+    $pelArt = new Peliculas();
+    $libArt = new Libros();
+
+    $peliculas = $pelArt->getPelis();
+    $libros = $libArt->getLibros();
+
+    $res = $peliculas->fetchAll();
+    $resLib = $libros->fetchAll();
 ?>
 
-<div class="row overflow-scroll">
+<div class="row p-0">
     <!--Reviews mas vistos-->
     <div class="col-sm-7">
         <div class="card m-auto" style="width: 40rem;">
             <div class="card-body text-center">Nombre de la peli</div>
             <div class="card-body">
                 <div class="d-flex mb-3">
-                    <img src="../../Resources/imgs/logo.png" class="card-img" alt="...">
+                    <img src="../../Resources/imgs/logo.png" class="card-img" alt="..">
                     <h5 class="card-title m-2"><b>Nombre de usuario</b></h5>
                 </div>
-                <img src="../../Resources/imgs/logo.png" class="card-img-top" alt="...">
+                <img src="../../Resources/imgs/logo.png" class="card-img-top" alt="..">
                 <p class="card-text text-post">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
 
@@ -39,28 +53,28 @@ include '../Templates/header.php';
                             <div class="col-9">
                                 <textarea type="text" class="" placeholder="Comenta aquí.." name="comment"></textarea>
                             </div>
-                            <div class="col-2 pt-3">
+                            <div class="col-2">
                                 <input type="submit" class="btn-comment" placeholder="Comentar" name="comment"/>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
 
-            <div class="card-body border-top">
-                <div class="d-flex">
-                    <img src="../../Resources/imgs/logo.png" class="card-img-user" alt="...">
-                    <h5 class="card-p m-2">Nombre de usuario</b>
+                <div class="card-body border-top">
+                    <div class="d-flex">
+                        <img src="../../Resources/imgs/logo.png" class="card-img-user" alt="..">
+                        <h5 class="card-p m-2">Nombre de usuario</b>
+                    </div>
+                    <p class="text-start text-post"><small>comentario de x usuario al review.</small></p>
                 </div>
-                <p class="text-start text-post"><small>comentario de x usuario al review.</small></p>
             </div>
         </div>
     </div>
 
     <!--Peliculas y libros recomendados-->
-    <div class="col-sm-5 me-0">
+    <div class="col-sm-5">
         <!--Peliculas-->
-
+<?php foreach($res as $row){?>
         <div><b>Peliculas recomendados</b></div>
 
         <div id="demo" class="carousel slide" data-bs-ride="carousel">
@@ -69,25 +83,25 @@ include '../Templates/header.php';
                     <div class="row row-cols-3 bg-light">
                         <div class="col-sm w-10">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/logo.png" class="card-img-top img-carrousel d-block" alt="Logo"></a>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo de la pelicula.</p>
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm w-10">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/logo.png" class="card-img-top img-carrousel d-block" alt="Logo"></a>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo de la pelicula.</p>
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm w-10">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/logo.png" class="card-img-top img-carrousel d-block" alt="Logo"></a>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo de la pelicula.</p>
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
@@ -98,25 +112,25 @@ include '../Templates/header.php';
                     <div class="row row-cols-3 bg-light">
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/logo.png" class="card-img-top img-carrousel d-block" alt="Logo"></a>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo de la pelicula.</p>
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/logo.png" class="card-img-top img-carrousel d-block" alt="Logo"></a>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo de la pelicula.</p>
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/logo.png" class="card-img-top img-carrousel d-block" alt="Logo"></a>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo de la pelicula.</p>
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
@@ -127,25 +141,25 @@ include '../Templates/header.php';
                     <div class="row row-cols-3 bg-light">
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/logo.png" class="card-img-top img-carrousel d-block" alt="Logo"></a>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo de la pelicula.</p>
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/logo.png" class="card-img-top img-carrousel d-block" alt="Logo"></a>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo de la pelicula.</p>
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/logo.png" class="card-img-top img-carrousel d-block" alt="Logo"></a>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo de la pelicula.</p>
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +176,9 @@ include '../Templates/header.php';
             <span class="visually-hidden">Next</span>
             </button>
         </div>
-
+<?php }
+    foreach($resLib as $rowLib){
+?>
         <!--Libros-->
 
         <div class="text-books"><b>Libros recomendados</b></div>
@@ -173,54 +189,25 @@ include '../Templates/header.php';
                     <div class="row row-cols-3 bg-light">
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="..." class="card-img-top img-carrousel d-block" alt="..."></a>
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo del libro.</p>
+                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="..." class="card-img-top img-carrousel d-block" alt="..."></a>
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo del libro.</p>
+                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="..." class="card-img-top img-carrousel d-block" alt="..."></a>
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo del libro.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-item" data-bs-interval="2000">
-                    <div class="row row-cols-3 bg-light">
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="..." class="card-img-top img-carrousel d-block" alt="..."></a>
-                                <div class="card-body">
-                                    <p class="card-text">titulo del libro.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="..." class="card-img-top img-carrousel d-block" alt="..."></a>
-                                <div class="card-body">
-                                    <p class="card-text">titulo del libro.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="..." class="card-img-top img-carrousel d-block" alt="..."></a>
-                                <div class="card-body">
-                                    <p class="card-text">titulo del libro.</p>
+                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
@@ -231,25 +218,54 @@ include '../Templates/header.php';
                     <div class="row row-cols-3 bg-light">
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="..." class="card-img-top img-carrousel d-block" alt="..."></a>
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo del libro.</p>
+                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="..." class="card-img-top img-carrousel d-block" alt="..."></a>
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo del libro.</p>
+                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="..." class="card-img-top img-carrousel d-block" alt="..."></a>
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
                                 <div class="card-body">
-                                    <p class="card-text">titulo del libro.</p>
+                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" data-bs-interval="2000">
+                    <div class="row row-cols-3 bg-light">
+                        <div class="col-sm">
+                            <div class="card" style="width: 11rem;">
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
+                                <div class="card-body">
+                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 11rem;">
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
+                                <div class="card-body">
+                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card" style="width: 11rem;">
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
+                                <div class="card-body">
+                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
@@ -266,5 +282,6 @@ include '../Templates/header.php';
             <span class="visually-hidden">Next</span>
             </button>
         </div>
+<?php } ?>
     </div>
 </div>
