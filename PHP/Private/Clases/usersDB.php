@@ -9,7 +9,7 @@
 	class users extends database
 	{
 		//Crea un nuevo usuario en la base de datos
-		function newUser(String $nom, String $email, $pass){
+		function newUser( $nom,  $email, $pass){
 			$sql = "INSERT INTO Usuarios (Nombre, Email, Password) VALUES (:nom, :email, :pass)";
 
 			$stmt =$this->BDDCon->prepare($sql);
@@ -19,7 +19,7 @@
 		}
 
 		//Busca usuario por email y devuelve los datos
-		function getUserEmail(String $email){ 
+		function getUserEmail( $email){ 
 			$sql = "SELECT * FROM Usuarios WHERE Email=:email";
 			
 			$stmt =$this->BDDCon->prepare($sql);
@@ -29,7 +29,7 @@
 		}
 		
 		//Busca usuario por nombre y devuleve los datos
-		function getUserName(String $name){ 
+		function getUserName( $name){ 
 			$sql = "SELECT * FROM Usuarios WHERE Nombre=:nom";
 			
 			$stmt =$this->BDDCon->prepare($sql);

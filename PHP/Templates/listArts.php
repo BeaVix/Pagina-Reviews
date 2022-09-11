@@ -25,7 +25,7 @@
     <div class="row">
 
     <div class="col-3 p-0">
-      <img src="../../Resources/imgs/<?php echo $row['Portada'];?>" class="Poster" alt="<?php echo $modo ? 'Libro' : 'Pelicula';?>">
+      <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' : 'Peliculas/'; echo $row['Portada'];?>" class="Poster" alt="<?php echo $modo ? 'Libro' : 'Pelicula';?>">
     </div>
 
     <div class="col-sm pt-5 me-0">

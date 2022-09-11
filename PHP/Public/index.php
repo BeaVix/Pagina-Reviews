@@ -11,9 +11,6 @@
 
     $peliculas = $pelArt->getPelis();
     $libros = $libArt->getLibros();
-
-    $res = $peliculas->fetchAll();
-    $resLib = $libros->fetchAll();
 ?>
 
 <div class="row p-0">
@@ -74,216 +71,112 @@
     <!--Peliculas y libros recomendados-->
     <div class="col-sm-5">
         <!--Peliculas-->
-        
         <div><b>Peliculas recomendados</b></div>
-        
-<?php foreach($res as $row) { ?>
-        
+
         <div id="demo" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="2000">
+            <?php for($i = 0; $i < 3; $i ++) { 
+                if($i == 0){    
+            ?>  
+                <div class="carousel-item active" data-bs-interval="3000">                  
                     <div class="row row-cols-3 bg-light">
+                        <?php for($a = 0; $a < 3; $a ++) { 
+                            $res = $peliculas->fetch();
+                        ?>
                         <div class="col-sm w-10">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>"></a>
+                                <div class="card-body" style="height: 4.2rem;">
+                                    <p class="card-text"><?php echo $res['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm w-10">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm w-10">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
-
-                <div class="carousel-item" data-bs-interval="2000">
+            <?php } else{ ?>
+                <div class="carousel-item" data-bs-interval="3000">
                     <div class="row row-cols-3 bg-light">
+                        <?php for($a = 0; $a < 3; $a ++) { 
+                            $res = $peliculas->fetch();
+                        ?>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
+                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>"></a>
+                                <div class="card-body" style="height: 4.2rem;">
+                                    <p class="card-text"><?php echo $res['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
-
-                <div class="carousel-item" data-bs-interval="2000">
-                    <div class="row row-cols-3 bg-light">
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="Logo"></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <?php } } ?>
             </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
             </button>
         </div>
-<?php }
-    foreach($resLib as $rowLib){
-?>
+
         <!--Libros-->
 
         <div class="text-books"><b>Libros recomendados</b></div>
 
         <div id="demo" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="2000">
+            <?php for($j = 0; $j < 3; $j ++) { 
+                if($j == 0){    
+            ?>  
+                <div class="carousel-item active" data-bs-interval="3000">                  
                     <div class="row row-cols-3 bg-light">
-                        <div class="col-sm">
+                        <?php for($b = 0; $b < 3; $b ++) { 
+                            $row = $libros->fetch();
+                        ?>
+                        <div class="col-sm w-10">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>"></a>
+                                <div class="card-body" style="height: 4.2rem;">
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
-
-                <div class="carousel-item" data-bs-interval="2000">
+            <?php } else{ ?>
+                <div class="carousel-item" data-bs-interval="3000">
                     <div class="row row-cols-3 bg-light">
+                        <?php for($a = 0; $a < 3; $a ++) { 
+                            $row = $peliculas->fetch();
+                        ?>
                         <div class="col-sm">
                             <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
+                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>"></a>
+                                <div class="card-body" style="height: 4.2rem;">
+                                    <p class="card-text"><?php echo $row['Titulo'];?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
-
-                <div class="carousel-item" data-bs-interval="2000">
-                    <div class="row row-cols-3 bg-light">
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="card" style="width: 11rem;">
-                                <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $rowLib['Portada']; ?>" class="card-img-top img-carrousel d-block" alt=".."></a>
-                                <div class="card-body">
-                                    <p class="card-text"><?php echo $rowLib['Titulo'];?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <?php } } ?>
             </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
             </button>
         </div>
-<?php } ?>
     </div>
 </div>

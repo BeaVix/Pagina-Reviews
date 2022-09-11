@@ -15,14 +15,14 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-sm" id="nav">
+<nav class="navbar navbar-expand-sm mb-3" id="nav">
         <div class="container-fluid">
             <img class="navbar-brand" src="../../Resources/imgs/logo_transparent.png" alt="Logo">
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="../Public/index.php">Inicio</a>
+                            <a class="nav-link" aria-current="page" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../Public/peliculas.php">Peliculas</a>

@@ -3,7 +3,6 @@
 	include_once 'Clases/usersDB.php';
 	include_once 'Clases/session.php';
 
-	use PDO;
 	use BDD\Tables\users;
 	use userSession\session;
 
