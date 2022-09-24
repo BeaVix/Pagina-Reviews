@@ -1,13 +1,3 @@
-// responsive navbar
-function menuResponsive() {
-var nav = document.getElementById("nav");
-    if (nav.className === "navbar") {
-        nav.className += "responsive";
-    } else {
-        nav.className = "navbar";
-    }
-}
-
 //modal form
 
 const ventana = document.querySelector(".modal");
