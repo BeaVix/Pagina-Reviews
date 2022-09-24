@@ -22,13 +22,13 @@
     $getRevs = $modo ? $revs->getReviewsLibros($row['ID']) : $revs->getReviewsPelis($row['ID']);
     $comms = $getRevs->fetchAll();
     ?>
-    <div class="row">
+    <div class="row pb-4">
 
     <div class="col-3 p-0">
       <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' : 'Peliculas/'; echo $row['Portada'];?>" class="Poster" alt="<?php echo $modo ? 'Libro' : 'Pelicula';?>">
     </div>
 
-    <div class="col-sm pt-5 me-0">
+    <div class="col-sm ps-5">
       <div class="text-md-start">
         <h2><?php echo $row['Titulo'];?></h2>
         <h6><b><?php echo $row['Nombre'];?></b></h6>
@@ -40,12 +40,12 @@
 
         <div><b>Rating: </b><?php echo $row['Rating'];?>/5 <?php echo starLoad($row['Rating']);?></div>
           <div class="ms-auto">
-            <i class='bx bxs-comment-detail' data-bs-toggle="collapse" data-bs-target="#demo" aria-expanded="false" aria-controls="demo"></i> 
+            <i class='bx bxs-comment-detail' data-bs-toggle="collapse" data-bs-target="#demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>" aria-expanded="false" aria-controls="demo"></i> 
             <b>Reviews: <?php echo $getRevs->rowCount()?></b>
           </div>
         </div>
 
-        <div class="collapse" id="demo">
+        <div class="collapse" id="demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>">
           <div class="card-body">
             <form>
               <div class="row">
