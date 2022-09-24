@@ -23,7 +23,7 @@ body {
     font-size: 17px;
 }
 
-.navbar img {
+.navbar-brand{
     height: 150px;
     width:  150px;
 }
@@ -35,6 +35,11 @@ body {
 
 .navbar .icon {
     display: none;
+}
+
+.nav-user-avatar{
+    height: 40px;
+    width: 40px;
 }
 
 /*Dropdown*/

@@ -8,8 +8,8 @@
     class Reviews extends Database{
 
         public function getReviewsPelis($id){
-            $sql = "SELECT *, Usuarios.Nombre FROM Reviews INNER JOIN Usuarios 
-                    ON Rviews.Usuario_ID = Usuarios.ID WHERE Pelicula_ID=$id";
+            $sql = "SELECT *, usuarios.Nombre FROM reviews INNER JOIN usuarios 
+                    ON reviews.Usuario_ID = usuarios.ID WHERE Pelicula_ID=$id";
             $stmt = $this->BDDCon->prepare($sql);
             $stmt->execute();
 
@@ -17,8 +17,8 @@
         }
 
         public function getReviewsLibros($id){
-            $sql = "SELECT *, Usuarios.Nombre FROM Reviews INNER JOIN Usuarios 
-                    ON Reviews.Usuario_ID = Usuarios.ID WHERE Libro_ID=$id";
+            $sql = "SELECT *, usuarios.Nombre FROM reviews INNER JOIN usuarios 
+                    ON reviews.Usuario_ID = usuarios.ID WHERE Libro_ID=$id";
             $stmt = $this->BDDCon->prepare($sql);
             $stmt->execute();
             

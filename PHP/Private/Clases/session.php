@@ -2,11 +2,12 @@
     /* Clase encargada de la manipulación de la variable $_SESSION */
     namespace userSession;
 
-    class session{
+    class Session{
 
         public $loggedIn;
         public $userEmail;
         public $userName;
+        public $userAvatar;
         public $anon; //Si el usuario inicio sesión de forma anonima
 
         function __construct(){
@@ -18,6 +19,7 @@
                 $this->anon = false;
                 $this->userName = $_SESSION['username'];
                 $this->userEmail = $_SESSION['email'];
+                $this->userAvatar = $_SESSION['avatar'];
             } elseif (isset($_SESSION['anon']) && $_SESSION['anon'] == true){ //Usuario inicio sesion y es anonimo
                 $this->loggedIn = $_SESSION['loggedIn'];
                 $this->anon = true;
@@ -25,17 +27,18 @@
         }
 
         /* Iniciar sesión con email */
-        public function login(String $name, String $email){
+        public function login(String $name, String $email, $avatar){
             $this->loggedIn = $_SESSION['loggedIn'] = true;
-            $this->anon = false;
+            $this->anon = $_SESSION['anon'] = false;
             $this->userName = $_SESSION['username'] = $name;
             $this->userEmail = $_SESSION['email'] = $email;
+            $this->userAvatar = $_SESSION['avatar'] = $avatar;
         }
 
         /* Iniciar sesión de forma anonima */
         public function anonLogin(){
             $this->loggedIn = $_SESSION['loggedIn'] = true;
-            $this->anon = true;
+            $this->anon = $_SESSION['anon'] =  true;
         }
 
         public function closeSession(){

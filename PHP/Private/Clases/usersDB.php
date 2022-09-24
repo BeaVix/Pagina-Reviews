@@ -10,7 +10,7 @@
 	{
 		//Crea un nuevo usuario en la base de datos
 		function newUser( $nom,  $email, $pass){
-			$sql = "INSERT INTO Usuarios (Nombre, Email, Password) VALUES (:nom, :email, :pass)";
+			$sql = "INSERT INTO usuarios (Nombre, Email, Password) VALUES (:nom, :email, :pass)";
 
 			$stmt =$this->BDDCon->prepare($sql);
 			$stmt->execute(array(':nom' => $nom, ':email' => $email, ':pass' => $pass));
@@ -19,8 +19,8 @@
 		}
 
 		//Busca usuario por email y devuelve los datos
-		function getUserEmail( $email){ 
-			$sql = "SELECT * FROM Usuarios WHERE Email=:email";
+		function getUserEmail($email){ 
+			$sql = "SELECT * FROM usuarios WHERE Email=:email";
 			
 			$stmt =$this->BDDCon->prepare($sql);
 			$stmt->execute(array(':email' => $email));
@@ -29,8 +29,8 @@
 		}
 		
 		//Busca usuario por nombre y devuleve los datos
-		function getUserName( $name){ 
-			$sql = "SELECT * FROM Usuarios WHERE Nombre=:nom";
+		function getUserName($name){ 
+			$sql = "SELECT * FROM usuarios WHERE Nombre=:nom";
 			
 			$stmt =$this->BDDCon->prepare($sql);
 			$stmt->execute(array(':nom' => $name));

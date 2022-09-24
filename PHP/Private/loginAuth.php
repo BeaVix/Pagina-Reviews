@@ -4,10 +4,14 @@
 	include_once 'Clases/session.php';
 
 	use BDD\Tables\users;
-	use userSession\session;
+	use userSession\Session;
+
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 
 	if(isset($_POST['anon'])){
-		$sess = new session();
+		$sess = new Session();
 		$sess->anonLogin();
 		echo('1');
 	}else{
@@ -39,8 +43,9 @@
 			if(password_verify($pass, $hash)){
 				$email = $data['Email'];
 				$nom = $data['Nombre'];
+				$avatar = $data['Avatar'];
 				$sess = new session();
-				$sess->login($nom, $email);
+				$sess->login($nom, $email, $avatar);
 				return true;
 			} else{
 				return false;
