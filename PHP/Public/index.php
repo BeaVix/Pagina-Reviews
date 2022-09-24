@@ -71,7 +71,7 @@
     <!--Peliculas y libros recomendados-->
     <div class="col-md-5">
         <!--Peliculas-->
-        <div class="titulo pb-3"><b>Peliculas recomendados</b></div>
+        <div class="titulo pt-3 pb-3"><b>Peliculas recomendados</b></div>
 
         <div id="demo_peliculas" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -79,11 +79,11 @@
                 if($i == 0){    
             ?>  
                 <div class="carousel-item active" data-bs-interval="3000">                  
-                    <div class="row row-cols-3">
+                    <div class="row">
                         <?php for($a = 0; $a < 3; $a ++) { 
                             $res = $peliculas->fetch();
                         ?>
-                        <div class="col">
+                        <div class="col-sm-auto">
                             <div class="card" style="width: 14rem; height: 22rem;">
                                 <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 18rem;"></a>
                                 <div class="card-body bg-dark p-2">
@@ -96,11 +96,11 @@
                 </div>
             <?php } else{ ?>
                 <div class="carousel-item" data-bs-interval="3000">
-                    <div class="row row-cols-3">
+                    <div class="row">
                         <?php for($a = 0; $a < 3; $a ++) { 
                             $res = $peliculas->fetch();
                         ?>
-                        <div class="col">
+                        <div class="col-sm-auto">
                             <div class="card" style="width: 14rem; height: 22rem;">
                                 <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 18rem;"></a>
                                 <div class="card-body bg-dark p-2">
@@ -134,11 +134,11 @@
                 if($j == 0){    
             ?>  
                 <div class="carousel-item active" data-bs-interval="3000">                  
-                    <div class="row row-cols-3">
+                    <div class="row">
                         <?php for($b = 0; $b < 3; $b ++) { 
                             $row = $libros->fetch();
                         ?>
-                        <div class="col-sm">
+                        <div class="col-sm-auto">
                             <div class="card" style="width: 14rem; height: 22rem;">
                                 <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>"  style="height: 18rem;"></a>
                                 <div class="card-body bg-dark p-2">
@@ -151,11 +151,11 @@
                 </div>
             <?php } else{ ?>
                 <div class="carousel-item" data-bs-interval="3000">
-                    <div class="row row-cols-3">
+                    <div class="row">
                         <?php for($a = 0; $a < 3; $a ++) { 
                             $row = $libros->fetch();
                         ?>
-                        <div class="col-sm">
+                        <div class="col-sm-auto">
                             <div class="card" style="width: 14rem; height: 22rem;">
                                 <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>" style="height: 18rem;"></a>
                                 <div class="card-body bg-dark p-2">
