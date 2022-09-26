@@ -12,7 +12,6 @@
 
   $arts = $modo ? new Libros() : new Peliculas();
   $revs = new Reviews();
-
   $getArts = $modo ? $arts->getLibros() : $arts->getPelis();
   $res = $getArts->fetchAll();
 
@@ -47,13 +46,15 @@
 
         <div class="collapse" id="demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>">
           <div class="card-body">
-            <form>
+            <form action="../Private/reviewsAuth.php" method="POST">
               <div class="row">
                 <div class="col-9">
+                  <input type="hidden" name="modo" value="<?php $modo ?>">
+                  <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
                   <textarea type="text" class="" placeholder="Deja tu review aquí.." name="comment"></textarea>
                 </div>
                 <div class="col-2 pt-3">
-                  <input type="submit" class="btn-comment" placeholder="Comentar" name="comment"/>
+                  <input type="submit" class="btn-comment" placeholder="Comentar" name="btn-comment"/>
                 </div>
               </div>
             </form>
@@ -61,7 +62,7 @@
         <!--Reviews-->
         <?php 
           foreach ($comms as $values) { //Carga las reviews?>
-            <div class="card-body border-top pt-2">
+            <div class="card-body card-commet border-top pt-2">
               <div class="d-flex">
                 <img src="../../Uploads/<?php echo ($values['Nombre'].'/Avatar.jpg') ?>" class="card-img-user" alt="...">
                 <h5 class="card-p m-2"><?php echo $values['Nombre'];?></b></h5>
@@ -92,7 +93,7 @@
                     <textarea type="text" class="" placeholder="Comenta aquí.." name="comment"></textarea>
                 </div>
                 <div class="col-2 pt-3">
-                    <input type="submit" class="btn-comment" placeholder="Comentar" name="comment"/>
+                    <input type="submit" class="btn-comment" placeholder="Comentar" name="btn-comment"/>
                 </div>
               </div>
             </form>
