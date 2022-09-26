@@ -27,12 +27,13 @@
         }
 
         /* Iniciar sesión con email */
-        public function login(String $name, String $email, $avatar){
+        public function login(String $name, String $email, $avatar, $userId){
             $this->loggedIn = $_SESSION['loggedIn'] = true;
             $this->anon = $_SESSION['anon'] = false;
             $this->userName = $_SESSION['username'] = $name;
             $this->userEmail = $_SESSION['email'] = $email;
             $this->userAvatar = $_SESSION['avatar'] = $avatar;
+            $this->userId = $_SESSION['userId'] = $userId;
         }
 
         /* Iniciar sesión de forma anonima */
@@ -41,7 +42,6 @@
             $this->anon = $_SESSION['anon'] =  true;
         }
 
-        /* Cerrar la sesión */
         public function closeSession(){
             session_destroy();
         }
