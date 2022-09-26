@@ -41,6 +41,7 @@
             $this->anon = $_SESSION['anon'] =  true;
         }
 
+        /* Cerrar la sesión */
         public function closeSession(){
             session_destroy();
         }

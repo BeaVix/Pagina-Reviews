@@ -34,7 +34,7 @@
                     <a class="nav-link" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">Iniciar Sesión</a>
                         <ul class="dropdown-menu dropdown-menu-lg-end">
                             <li>
-                                <form class="dropdown-item form-container" action="../Private/loginAuth.php" method="POST">
+                                <form class="dropdown-item form-container" id="form-iniciar-sesion">
                                     <h1>Iniciar Sesión</h1>
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="col-sm-6 rigth text-center">
                                             <div class="mt-5">
-                                                <button class="btn User" id="anon-btn">Ingresar Anonimamente</button>
+                                                <button type="button" class="btn User" id="anon-btn" onclick="anonSignIn();">Ingresar Anonimamente</button>
                                                 <p class="text-center">ó<p>
                                                 <button type="button" class="btn signin" onclick="openModal();">Registrarse</button>
                                             </div>
@@ -74,7 +74,7 @@
 <!--FORMULARIO DE REGISTRO-->
 <div class="modal">
     <div class="modal-content">
-        <form action="#" class="form-container">
+        <form action="#" class="form-container" id="form-registrarse">
             <h1>Registrarse</h1>
 
             <label for="nombre">Nombre de usuario</label>
@@ -86,7 +86,7 @@
             <input type="password" name="psw" placeholder="ingrese la contraseña">
 
             <div class="formBtn">
-                <button type="submit" class="btn success">Registrarse</button>
+                <button type="button" class="btn success" onclick="signUp();">Registrarse</button>
                 <button type="button" class="btn cancel" onclick="closeModal();">Cancelar</button>
             </div>
         </form>

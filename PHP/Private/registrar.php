@@ -21,7 +21,7 @@
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
                 $res = $bd->newUser($name, $email, $hash);
                 if($res->rowCount() > 0){
-                    echo "USUARIO CREADO";
+                    echo "1";
                 }else{
                     echo "ERROR DE SERVIDOR";
                 }
