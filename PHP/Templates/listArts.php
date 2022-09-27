@@ -48,6 +48,20 @@
         <div class="collapse" id="demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>">
           <div class="card-body">
             <form>
+              <div class="star-picker-container">
+                <b>Su rating:</b>
+                  <div class="star-picker">
+                    
+                    <i class="bx bx-star" name="star1"></i>
+                    <i class="bx bx-star" name="star2"></i>
+                    <i class="bx bx-star" name="star3"></i>
+                    <i class="bx bx-star" name="star4"></i>
+                    <i class="bx bx-star" name="star5"></i>
+                    
+                  </div>
+                  <span class="star-count">0/5</span>
+                  <input type="hidden" name="rating">
+              </div>
               <div class="row">
                 <div class="col-9">
                   <textarea type="text" class="" placeholder="Deja tu review aquí.." name="comment"></textarea>
@@ -114,10 +128,12 @@
       $num = floor($num);
       $half .= "<i class=\"bx bxs-star-half\"></i>";
     }
-    $string .= str_repeat("<i class=\"bx bxs-star-fill\"></i>", $num);
+    $string .= str_repeat("<i class=\"bx bxs-star\"></i>", $num);
     $string .= $half;
     $string .= str_repeat("<i class=\"bx bx-star\"></i>", (5-$num));
 
     return $string;
   }
 ?>  
+
+<script src="../../JS/starPicker.js"></script>

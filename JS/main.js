@@ -29,4 +29,3 @@ ventana.onclick = function(event) {
 function limpiarForm() {
     form.reset();
 }
-

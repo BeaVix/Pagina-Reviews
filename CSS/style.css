@@ -227,3 +227,15 @@ textarea:focus {
     height: 150px;
 }
 
+.star-picker-container{
+    display: flex;
+    align-items: center;
+}
+
+.star-picker{
+    display: inline;
+}
+
+.star-picker i{
+    font-size: 30px;
+}
