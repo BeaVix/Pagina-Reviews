@@ -80,6 +80,7 @@ async function reviewForm(id){
         console.log('Review enviado :)');
     }else{
         console.log('Review no enviado :(');
+        console.log(res);
     }
 }
 /*

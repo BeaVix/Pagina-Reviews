@@ -15,15 +15,16 @@
 
       $modo = $_POST['modo'];
       $artId = $_POST['id'];
+      $rating = $_POST['rating'];
       if(!$sess->anon){
-            $id = $sess->$userId;
+            $id = $sess->userId;
       }else{
             $id = 0;
       }
       $fecha = date('Y-m-d H:i:s');
       
       $comm = $_POST['comment'];
-      $datos = array($artId, $id, $comm, $fecha);
+      $datos = array($artId, $id, $comm, $rating, $fecha);
 
       if($sess){
             $revs->addReview($modo, $datos);

@@ -9,6 +9,7 @@
         public $userName;
         public $userAvatar;
         public $anon; //Si el usuario inicio sesión de forma anonima
+        public $userId;
 
         function __construct(){
             session_start();
@@ -20,6 +21,7 @@
                 $this->userName = $_SESSION['username'];
                 $this->userEmail = $_SESSION['email'];
                 $this->userAvatar = $_SESSION['avatar'];
+                $this->userId = $_SESSION['userId'];
             } elseif (isset($_SESSION['anon']) && $_SESSION['anon'] == true){ //Usuario inicio sesion y es anonimo
                 $this->loggedIn = $_SESSION['loggedIn'];
                 $this->anon = true;
@@ -27,7 +29,7 @@
         }
 
         /* Iniciar sesión con email */
-        public function login(String $name, String $email, $avatar){
+        public function login(String $name, String $email, $avatar, $userId){
             $this->loggedIn = $_SESSION['loggedIn'] = true;
             $this->anon = $_SESSION['anon'] = false;
             $this->userName = $_SESSION['username'] = $name;

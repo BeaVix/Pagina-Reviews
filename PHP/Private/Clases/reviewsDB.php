@@ -9,9 +9,9 @@
 
         public function addReview($modo, array $datos){
             if(!$modo){
-                $stmt = $this->BDDCon->prepare("INSERT INTO reviews (Pelicula_ID, Usuario_ID, Comentario, Cant_Estrellas, `Date`, Likes, Dislikes) VALUES (?, ?, ?, 0, ?, 0, 0)");
+                $stmt = $this->BDDCon->prepare("INSERT INTO reviews (Pelicula_ID, Usuario_ID, Comentario, Cant_Estrellas, `Date`, Likes, Dislikes) VALUES (?, ?, ?, ?, ?, 0, 0)");
             } else {
-                $stmt = $this->BDDCon->prepare("INSERT INTO reviews (Libro_ID, Usuario_ID, Comentario, Cant_Estrellas, `Date`, Likes, Dislikes) VALUES (?, ?, ?, 0, ?, 0, 0)");
+                $stmt = $this->BDDCon->prepare("INSERT INTO reviews (Libro_ID, Usuario_ID, Comentario, Cant_Estrellas, `Date`, Likes, Dislikes) VALUES (?, ?, ?, ?, ?, 0, 0)");
             }
             $stmt->execute($datos);
             return $stmt;
