@@ -12,6 +12,7 @@
 
   $arts = $modo ? new Libros() : new Peliculas();
   $revs = new Reviews();
+
   $getArts = $modo ? $arts->getLibros() : $arts->getPelis();
   $res = $getArts->fetchAll();
 
@@ -54,7 +55,7 @@
                   <textarea type="text" class="" placeholder="Deja tu review aquí.." name="comment"></textarea>
                 </div>
                 <div class="col-2 pt-3">
-                  <button type="button" class="btn-comment" onclick="reviewForm(<?php echo $row['ID'] ?>)" name="btn-comment">Comentar</button>
+                  <button type="button" class="btn-comment" onclick="reviewForm('demo<?php echo $row['ID'] ?>')" name="btn-comment">Comentar</button>
                 </div>
               </div>
             </form>
@@ -69,35 +70,7 @@
               </div>
               <div class="text-start m-2">Rating: <?php echo $values['Rating'];?>/5</div>
               <p class="text-start text-post"><small><?php echo $values['Comentario'];?></small></p>
-              <div class="card-body">
-                <div class="border-top d-flex">
-                  <button class="btn comment text-start" type="button" data-bs-toggle="collapse" data-bs-target="#Userdemo<?php echo $values['ID'];?>" aria-expanded="false" aria-controls="demo">
-                      <i class='bx bx-comment' style='color: black'></i>CantComment
-                  </button>
-                  <div class="btn-group">
-                      <button type="button" class="btn dislike" onclick="">
-                          <i class='bx bx-dislike' style='color: black'></i>
-                      </button>
-                      <button type="button" class="btn like" onclick="">
-                          <i class='bx bx-like' style='color: black'></i>
-                      </button>
-                  </div>
-                </div>
             </div>
-
-            <div class="collapse" id="Userdemo<?php echo $values['ID'];?>">
-          <div class="card-body">
-            <form>
-              <div class="row">
-                <div class="col-9">
-                    <textarea type="text" class="" placeholder="Comenta aquí.." name="comment"></textarea>
-                </div>
-                <div class="col-2 pt-3">
-                    <input type="submit" class="btn-comment" placeholder="Comentar" name="btn-comment"/>
-                </div>
-              </div>
-            </form>
-          </div>
           <?php
           }
         ?>

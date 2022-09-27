@@ -7,12 +7,11 @@
     $loggedIn = $sess->loggedIn;
 ?>
 
-<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="../../Resources/imgs/logo.png" alt="Logo" width="150" height="150" class="d-inline-block align-text-top"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+    </button>
+        <a class="navbar-brand" href="#"><img src="../../Resources/imgs/logo.png" alt="Logo" width="150" height="150" class="d-inline-block align-text-top"></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                         <li class="nav-item">
@@ -25,7 +24,7 @@
                             <a class="nav-link" href="../Public/libros.php">Libros</a>
                         </li>
             </div>
-              <!--FORMULARIO DE INGRESO-->
+              <!--FORMULARIO DE INGRESO poner un div general para encerar todo en el btn-->
                     <?php
                         if (!$loggedIn) {
 
@@ -70,7 +69,7 @@
                     ?>
                 </ul>
     </div>
-</nav>
+
 <!--FORMULARIO DE REGISTRO-->
 <div class="modal">
     <div class="modal-content">
