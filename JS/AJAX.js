@@ -6,10 +6,11 @@ async function signIn(){
 
     let response = await fetch('../Private/loginAuth.php', {
         method: 'POST',
-	@@ -15,6 +12,40 @@ async function signIn(){
+        body: data
+    });
+    let result = await response.text();
     if(result == '1'){
         reloadNav();
-    }else{
         console.log(result);
     }
 }
@@ -47,37 +48,38 @@ async function signUp(){
     }
 }
 
-	@@ -23,7 +54,6 @@ async function reloadNav(){
+async function reloadNav(){
+    const nav = document.querySelector('#nav');
     let response = await fetch('../Templates/navbar.php');
     let result = await response.text();
     nav.innerHTML = result;
 }
 
 async function signOut(){
-	@@ -32,9 +62,4 @@ async function signOut(){
+    let response = await fetch('../Private/logOut.php');
+    let result = await response.text();
     if(result){
         reloadNav();
     }
 }
-/*
-async function reviewForm(){
-    const comment = document.querySelector('#comment').value;
 
-    let content = new FormData();
-    content.append('comment', comment);
+async function reviewForm(id){
+    const form = document.querySelector('#review-'+id);
+
+    let content = new FormData(form);
 
     let response = await fetch('../Private/reviewsAuth.php', {
         method: 'POST',
-        body: data
+        body: content
     });
     let res = await response.text();
-    if(res == 1){
-    
+    if(res == '1'){
+        console.log('Review enviado :)');
+    }else{
+        console.log('Review no enviado :(');
     }
 }
 
 async function loadComment(){
     const userComment = document.querySelector('.card-commet');
 }
-
-*/
