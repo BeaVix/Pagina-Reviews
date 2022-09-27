@@ -19,18 +19,18 @@
 
         public function getReviewsPelis($id){
             $sql = "SELECT *, usuarios.Nombre FROM reviews INNER JOIN usuarios 
-                    ON reviews.Usuario_ID = usuarios.ID WHERE Pelicula_ID = $id";
+                    ON reviews.Usuario_ID = usuarios.ID WHERE Pelicula_ID = :id";
             $stmt = $this->BDDCon->prepare($sql);
-            $stmt->execute();
+            $stmt->execute(array(':id' => $id));
 
             return $stmt;
         }
 
         public function getReviewsLibros($id){
             $sql = "SELECT *, usuarios.Nombre FROM reviews INNER JOIN usuarios 
-                    ON reviews.Usuario_ID = usuarios.ID WHERE Libro_ID = $id";
+                    ON reviews.Usuario_ID = usuarios.ID WHERE Libro_ID = :id";
             $stmt = $this->BDDCon->prepare($sql);
-            $stmt->execute();
+            $stmt->execute(array(':id' => $id));
             
             return $stmt;
         }

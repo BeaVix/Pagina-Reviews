@@ -27,7 +27,7 @@
         }
 
         /* Iniciar sesión con email */
-        public function login(String $name, String $email, $avatar, $userId){
+        public function login(String $name, String $email, $avatar){
             $this->loggedIn = $_SESSION['loggedIn'] = true;
             $this->anon = $_SESSION['anon'] = false;
             $this->userName = $_SESSION['username'] = $name;
