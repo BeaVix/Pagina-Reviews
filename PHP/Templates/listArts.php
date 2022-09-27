@@ -20,7 +20,6 @@
 
   foreach ($res as $row) {
     $getRevs = $modo ? $revs->getReviewsLibros($row['ID']) : $revs->getReviewsPelis($row['ID']);
-    $comms = $getRevs->fetchAll();
     ?>
     <div class="row text-start pb-4">
 
@@ -47,7 +46,7 @@
 
         <div class="collapse" id="demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>">
           <div class="card-body">
-            <form id="review-<?php echo $row['ID'];?>" method="POST">
+            <form id="review<?php echo $row['ID'];?>" method="POST">
               <div class="star-picker-container">
                 <b>Su rating:</b>
                   <div class="star-picker">
@@ -75,19 +74,13 @@
             </form>
           </div>
         <!--Reviews-->
+        <div class="card-body border-top pt-2" id="comment">
         <?php 
-          foreach ($comms as $values) { //Carga las reviews?>
-            <div class="card-body card-commet border-top pt-2">
-              <div class="d-flex">
-                <img src="../../Uploads/<?php echo ($values['Nombre'].'/Avatar.jpg') ?>" class="card-img-user" alt="...">
-                <h5 class="card-p m-2"><?php echo $values['Nombre'];?></b></h5>
-              </div>
-              <div class="text-start m-2">Rating: <?php echo $values['Cant_Estrellas'];?>/5<?php echo starLoad($values['Cant_Estrellas']) ?></div>
-              <p class="text-start text-post"><small><?php echo $values['Comentario'];?></small></p>
-            </div>
-          <?php
-          }
+          $rew = $row['ID'];
+          
+          include 'userComment.php';
         ?>
+        </div>
         </div>
       </div>
     </div>
