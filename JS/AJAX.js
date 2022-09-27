@@ -77,13 +77,18 @@ async function reviewForm(id){
     });
     let res = await response.text();
     if(res == '1'){
+        reloadComment();
         console.log('Review enviado :)');
+
     }else{
         console.log('Review no enviado :(');
-        console.log(res);
     }
 }
-/*
-async function loadComment(){
-    const userComment = document.querySelector('.card-commet');
-}*/
+
+async function reloadComment(){
+    const userComment = document.querySelector('#card-comment');
+    let response = await fetch('../Templates/listArts.php');
+    let result = await response.text();
+    userComment.innerHTML = result;
+    console.log(result);
+}
