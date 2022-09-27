@@ -67,8 +67,8 @@ async function signUp(){
     }
 }
 
-async function reviewForm(id){
-    const form = document.querySelector('#review-'+id);
+async function reviewForm(id, modo){
+    const form = document.querySelector('#review'+id);
 
     let content = new FormData(form);
     let response = await fetch('../Private/reviewsAuth.php', {
@@ -77,17 +77,22 @@ async function reviewForm(id){
     });
     let res = await response.text();
     if(res == '1'){
-        reloadComment();
+        reloadComment(modo, id);
         console.log('Review enviado :)');
-
     }else{
         console.log('Review no enviado :(');
     }
 }
 
-async function reloadComment(){
-    const userComment = document.querySelector('#card-comment');
-    let response = await fetch('../Templates/listArts.php');
+async function reloadComment(id, modo){
+    const userComment = document.querySelector('#comment'+id);
+    let data = new FormData();
+    data.append('modo', modo);
+    data.append('id', id);
+    let response = await fetch('../Templates/userComment.php', {
+        method: 'POST',
+        body: data
+    });
     let result = await response.text();
     userComment.innerHTML = result;
     console.log(result);
