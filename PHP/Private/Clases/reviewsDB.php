@@ -8,12 +8,11 @@
     class Reviews extends Database{
 
         public function addReview($modo, array $datos){
-            if($modo == 'peliculas'){
-                $stmt = $this->BDDCon->prepare("INSERT INTO reviews (Pelicula_ID, Usuario_ID, Comentario, Cant_Estrellas, Date, Likes, Dislikes) VALUES ('?, ?, ?, 0, ?, 0, 0')");
+            if(!$modo){
+                $stmt = $this->BDDCon->prepare("INSERT INTO reviews (Pelicula_ID, Usuario_ID, Comentario, Cant_Estrellas, `Date`, Likes, Dislikes) VALUES (?, ?, ?, 0, ?, 0, 0)");
             } else {
-                $stmt = $this->BDDCon->prepare("INSERT INTO reviews (Libro_ID, Usuario_ID, Comentario, Cant_Estrellas, Date, Likes, Dislikes) VALUES ('?, ?, ?, 0, ?, 0, 0')");
+                $stmt = $this->BDDCon->prepare("INSERT INTO reviews (Libro_ID, Usuario_ID, Comentario, Cant_Estrellas, `Date`, Likes, Dislikes) VALUES (?, ?, ?, 0, ?, 0, 0)");
             }
-            $stmt = $this->BDDCon->prepare($sql);
             $stmt->execute($datos);
             return $stmt;
         }
