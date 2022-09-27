@@ -14,7 +14,7 @@
     <title>Real ReView</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm mb-3" id="nav">
+    <nav nav class="navbar navbar-expand-lg mb-3" id="nav">
 <?php 
     include 'navbar.php';
 ?> 
