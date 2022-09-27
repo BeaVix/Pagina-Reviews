@@ -46,15 +46,15 @@
 
         <div class="collapse" id="demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>">
           <div class="card-body">
-            <form action="../Private/reviewsAuth.php" method="POST">
+            <form id="review-<?php echo $row['ID'];?>" method="POST">
               <div class="row">
                 <div class="col-9">
-                  <input type="hidden" name="modo" value="<?php $modo ?>">
+                  <input type="hidden" name="modo" value="<?php echo $modo ?>">
                   <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
                   <textarea type="text" class="" placeholder="Deja tu review aquí.." name="comment"></textarea>
                 </div>
                 <div class="col-2 pt-3">
-                  <input type="submit" class="btn-comment" placeholder="Comentar" name="btn-comment"/>
+                  <button type="button" class="btn-comment" onclick="reviewForm(<?php echo $row['ID'] ?>)" name="btn-comment">Comentar</button>
                 </div>
               </div>
             </form>
