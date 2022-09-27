@@ -1,8 +1,11 @@
 /* Iniciar sesión sin ir directamente a loginAuth.php usando Fetch */
 async function signIn(){
-    const form = document.querySelector('#form-iniciar-sesion');
+    const name = document.querySelector('#email').value;
+    const pass = document.querySelector('#psw').value;
 
-    let data = new FormData(form);
+    let data = new FormData();
+    data.append('user', name);
+    data.append('psw', pass);
 
     let response = await fetch('../Private/loginAuth.php', {
         method: 'POST',
@@ -11,7 +14,23 @@ async function signIn(){
     let result = await response.text();
     if(result == '1'){
         reloadNav();
-        console.log(result);
+    }else{
+    }
+}
+
+async function reloadNav(){
+    const nav = document.querySelector('#nav');
+    let response = await fetch('../Templates/navbar.php');
+    let result = await response.text();
+    nav.innerHTML = result;
+    console.log(result);
+}
+
+async function signOut(){
+    let response = await fetch('../Private/logOut.php');
+    let result = await response.text();
+    if(result){
+        reloadNav();
     }
 }
 
@@ -48,26 +67,10 @@ async function signUp(){
     }
 }
 
-async function reloadNav(){
-    const nav = document.querySelector('#nav');
-    let response = await fetch('../Templates/navbar.php');
-    let result = await response.text();
-    nav.innerHTML = result;
-}
-
-async function signOut(){
-    let response = await fetch('../Private/logOut.php');
-    let result = await response.text();
-    if(result){
-        reloadNav();
-    }
-}
-
 async function reviewForm(id){
     const form = document.querySelector('#review-'+id);
 
     let content = new FormData(form);
-
     let response = await fetch('../Private/reviewsAuth.php', {
         method: 'POST',
         body: content
@@ -79,7 +82,7 @@ async function reviewForm(id){
         console.log('Review no enviado :(');
     }
 }
-
+/*
 async function loadComment(){
     const userComment = document.querySelector('.card-commet');
-}
+}*/
