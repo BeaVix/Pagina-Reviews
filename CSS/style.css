@@ -239,3 +239,7 @@ textarea:focus {
 .star-picker i{
     font-size: 30px;
 }
+
+.form-control:focus {
+    outline: none !important;
+}
