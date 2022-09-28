@@ -22,7 +22,7 @@
         <img src="../../Uploads/<?php echo ($values['Nombre'].'/Avatar.jpg') ?>" class="card-img-user" alt="...">
         <h5 class="card-p m-2"><?php echo $values['Nombre'];?></b></h5>
         </div>
-        <div class="text-start m-2">Rating: <?php echo $values['Cant_Estrellas'];?>/5<?php echo starLoad($values['Cant_Estrellas']) ?></div>
+        <div class="text-md-start m-2">Rating: <?php echo $values['Cant_Estrellas'];?>/5<?php echo starLoad($values['Cant_Estrellas']) ?></div>
         <p class="text-start text-post"><small><?php echo $values['Comentario'];?></small></p>
 <?php
     }
