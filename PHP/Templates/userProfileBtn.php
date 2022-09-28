@@ -7,6 +7,7 @@
 
     $user = $sess->userName;
     $avatar= $sess->userAvatar;
+    $userId = $sess->userId;
 
     if(!isset($avatar)){
         $avatar = '../../Resources/imgs/default_avatar.png';
