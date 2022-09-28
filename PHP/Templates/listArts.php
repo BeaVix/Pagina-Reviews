@@ -1,6 +1,7 @@
 <?php
   include $modo ? '../Private/Clases/librosDB.php' : '../Private/Clases/peliculasDB.php';
   include '../Private/Clases/reviewsDB.php';
+  include '../Private/starLoad.php';  
 ?>
 
 <div class="container text-center">
@@ -68,13 +69,13 @@
                   <textarea type="text" class="" placeholder="Deja tu review aquí.." name="comment"></textarea>
                 </div>
                 <div class="col-2 pt-3">
-                  <button type="button" class="btn-comment" onclick="reviewForm('<?php echo $row['ID'] ?>')" name="btn-comment">Comentar</button>
+                  <button type="button" class="btn-comment" onclick="reviewForm(<?php echo $row['ID']; ?>,<?php echo $modo; ?>)" name="btn-comment">Comentar</button>
                 </div>
               </div>
             </form>
           </div>
         <!--Reviews-->
-        <div class="card-body border-top pt-2" id="comment">
+        <div class="card-body border-top pt-2" id="comment<?php echo $row['ID']?>">
         <?php 
           $rew = $row['ID'];
           
@@ -87,20 +88,6 @@
 <?php
   }
   echo $out;
-
-  function starLoad($num){
-    $string = "";
-    $half = "";
-    if (is_float($num)){
-      $num = floor($num);
-      $half .= "<i class=\"bx bxs-star-half\"></i>";
-    }
-    $string .= str_repeat("<i class=\"bx bxs-star\"></i>", $num);
-    $string .= $half;
-    $string .= str_repeat("<i class=\"bx bx-star\"></i>", (5-$num));
-
-    return $string;
-  }
 ?>  
 
 <script src="../../JS/starPicker.js"></script>

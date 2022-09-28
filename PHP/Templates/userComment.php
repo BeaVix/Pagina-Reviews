@@ -1,4 +1,8 @@
-<?php 
+<?php
+    include_once '../Private/Clases/reviewsDB.php';
+    
+    use BDD\Tables\Reviews;
+
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -6,6 +10,8 @@
     if($_SERVER["REQUEST_METHOD"] != 'GET'){
         $modo = $_POST["modo"];
         $rew = $_POST["id"];
+        $revs = new Reviews();
+        include_once '../Private/starLoad.php';
     }
     $getRevs = $modo ? $revs->getReviewsLibros($rew) : $revs->getReviewsPelis($rew);
     $comms = $getRevs->fetchAll();

@@ -77,7 +77,7 @@ async function reviewForm(id, modo){
     });
     let res = await response.text();
     if(res == '1'){
-        reloadComment(modo, id);
+        reloadComment(id, modo);
         console.log('Review enviado :)');
     }else{
         console.log('Review no enviado :(');
