@@ -1,19 +1,38 @@
 <?php
-include '../Templates/header.php';
+    include '../Templates/header.php';
+    include_once '../Private/Clases/usersDB.php';
+    include_once '../Private/Clases/reviewsDB.php';
+    include_once '../Private/starLoad.php'; 
+
+    use BDD\Tables\Users;
+    use BDD\Tables\Reviews;
+
+    $user = new Users();
+    $revs = new Reviews();
+
+    $getUser = $user->getUserName();
+    $userRes = $getUser->fetchAll();
+
+    foreach($userRes as $row){
 ?>
 <div class=" p-5">
     <div class="card-body">
         <div class="d-flex mb-3">
-            <img src="../../Resources/imgs/logo.png" class="userPerfil" alt="...">
+        <img src="../../Uploads/<?php echo ($row['Nombre'].'/Avatar.jpg') ?>" class="userPerfil" alt="<?php echo ($row['Avatar'].'.jpg') ?>">
             <div>
-                <h5 class="card-title m-2"><b>Nombre de usuario</b></h5>
+                <h5 class="card-title m-2"><b><?php echo $row['Nombre'];?></b></h5>
                 <p class="card-text text-post">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
         </div>
     </div>
 
     <hr>
+<?php 
+    $getRevs = $modo ? $revs->getReviewsLibros($rew) : $revs->getReviewsPelis($rew);
+    $comms = $getRevs->fetchAll();
 
+    foreach ($comms as $values) {
+?>
     <div class="col-sm">
         <div class="card m-auto" style="width: 40rem;">
             <div class="card-body text-center">Nombre de la peli</div>
@@ -68,3 +87,5 @@ include '../Templates/header.php';
     </div>
 
 </div>
+
+<?php } } ?>
