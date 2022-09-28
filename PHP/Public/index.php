@@ -48,7 +48,10 @@
                     <form>
                         <div class="row">
                             <div class="col-9">
-                                <textarea type="text" class="" placeholder="Comenta aquí.." name="comment"></textarea>
+                                <div class="form-floating">
+                                    <textarea class="form-control-plaintext" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
+                                    <label for="floatingTextarea">Reviews</label>
+                                </div>
                             </div>
                             <div class="col-2">
                                 <input type="submit" class="btn-comment" placeholder="Comentar" name="comment"/>
