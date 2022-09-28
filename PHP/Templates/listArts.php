@@ -66,7 +66,10 @@
                 <div class="col-9">
                   <input type="hidden" name="modo" value="<?php echo $modo ?>">
                   <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
-                  <textarea type="text" class="" placeholder="Deja tu review aquí.." name="comment"></textarea>
+                  <div class="form-floating">
+                    <textarea class="form-control-plaintext" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">Reviews</label>
+                  </div>
                 </div>
                 <div class="col-2 pt-3">
                   <button type="button" class="btn-comment" onclick="reviewForm(<?php echo $row['ID']; ?>,<?php echo $modo; ?>)" name="btn-comment">Comentar</button>
