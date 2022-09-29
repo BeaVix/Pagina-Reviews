@@ -67,7 +67,7 @@
                   <input type="hidden" name="modo" value="<?php echo $modo ?>">
                   <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
                   <div class="form-floating">
-                    <textarea class="form-control-plaintext" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
+                    <textarea class="form-control-plaintext pt-2" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
                     <label for="floatingTextarea">Reviews</label>
                   </div>
                 </div>
