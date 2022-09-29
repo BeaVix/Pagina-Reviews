@@ -9,8 +9,10 @@
     $avatar= $sess->userAvatar;
     $userId = $sess->userId;
 
-    if(!isset($avatar)){
+    if(!isset($avatar) && !$sess->anon){
         $avatar = '../../Resources/imgs/default_avatar.png';
+    }elseif($sess->anon){
+        $avatar = '../../Resources/imgs/Anon_avatar.png';
     }
 ?>
 <div class="dropdown">

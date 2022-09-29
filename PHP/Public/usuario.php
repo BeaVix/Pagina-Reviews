@@ -3,14 +3,24 @@
     include_once '../Private/Clases/usersDB.php';
     include_once '../Private/Clases/reviewsDB.php';
     include_once '../Private/starLoad.php'; 
+    include_once '../Private/Clases/session.php';
 
     use BDD\Tables\Users;
     use BDD\Tables\Reviews;
+    use userSession\Session;
 
     $user = new Users();
     $revs = new Reviews();
+    $sess = new Session();
 
-    $getUser = $user->getUserName();
+    $nom = $sess->userName;
+    $avatar = $sess->userAvatar;
+
+ 
+        $avatar = '../../Resources/imgs/';
+
+
+    $getUser = $user->getUserName($nom);
     $userRes = $getUser->fetchAll();
 
     foreach($userRes as $row){
@@ -18,7 +28,7 @@
 <div class=" p-5">
     <div class="card-body">
         <div class="d-flex mb-3">
-        <img src="../../Uploads/<?php echo ($row['Nombre'].'/Avatar.jpg') ?>" class="userPerfil" alt="<?php echo ($row['Avatar'].'.jpg') ?>">
+        <img src="<?php  echo !isset($avatar) ? "../../Uploads/".$row['Nombre'].'/Avatar.jpg' : "../../Resources/imgs/default_avatar.png"?>" class="userPerfil" alt="<?php echo ($row['Avatar'].'.jpg') ?>">
             <div>
                 <h5 class="card-title m-2"><b><?php echo $row['Nombre'];?></b></h5>
                 <p class="card-text text-post">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
