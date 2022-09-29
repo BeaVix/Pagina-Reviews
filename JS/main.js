@@ -29,3 +29,12 @@ ventana.onclick = function(event) {
 function limpiarForm() {
     form.reset();
 }
+
+function showPassword(){
+    const inputPass = document.querySelector('#psw');
+    if (inputPass.type === 'password') {
+        inputPass.type = 'text';
+    } else {
+        inputPass.type = 'password';
+    }
+}
