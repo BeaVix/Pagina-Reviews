@@ -42,7 +42,9 @@
                                                 <input type="text" name="user" id="email" placeholder="ingrese el Email"><br>
 
                                                 <label for="psw">Contraseña</label><br>
-                                                <input type="password" name="psw" id="psw" placeholder="ingrese la contraseña">
+                                                <input type="password" name="psw" id="psw" placeholder="ingrese la contraseña"><br>
+                                                
+                                                <label><input type="checkbox" onclick="showPassword();"> mostrar contraseña</label>
                                             </div>
                                                 <div class="formBtn">
                                                     <button type="button" class="btn success" id="nav-login" onclick="signIn();">Ingresar</button>
