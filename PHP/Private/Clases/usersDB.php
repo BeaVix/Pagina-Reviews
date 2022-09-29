@@ -5,6 +5,7 @@
 	include_once 'database.php';
 
 	use BDD\database;
+	use PDO;
 	
 	class users extends database
 	{
@@ -34,6 +35,19 @@
 			
 			$stmt =$this->BDDCon->prepare($sql);
 			$stmt->execute(array(':nom' => $name));
+
+			return $stmt;
+		}
+
+		//Cambia los datos del usuario especificado por id
+		function updateUser($id, $nom, $avatar){
+			$sql = "UPDATE usuarios SET Nombre = :nombre, Avatar = :avatar WHERE id = :id";
+
+			$stmt = $this->BDDCon->prepare($sql);
+			$stmt->bindParam(':id', $id);
+			$stmt->bindParam(':nombre', $nom);
+			$stmt->bindParam(':avatar', $avatar);
+			$stmt->execute();
 
 			return $stmt;
 		}

@@ -12,7 +12,9 @@
         public $userId;
 
         function __construct(){
-            session_start();
+            if(session_status() == 1){
+                session_start();
+            }
             /*Si ya existe una sesión activa, automaticamente se guardan las variables
               al crearse el objeto*/
             if(isset($_SESSION['loggedIn']) && isset($_SESSION['anon']) && $_SESSION['anon'] == false){ //Usuario inicio sesion y no es anonimo
@@ -44,8 +46,15 @@
             $this->anon = $_SESSION['anon'] =  true;
         }
 
+        /* Cierra la sesion */
         public function closeSession(){
             session_destroy();
+        }
+
+        /* Actualiza los datos guardados en la sesion */
+        public function update($name, $avatar){
+            $this->userName = $_SESSION['username'] = $name;
+            $this->userAvatar = $_SESSION['avatar'] = $avatar;
         }
     }
 

@@ -18,7 +18,7 @@
         }
         
         public function getUserReview($id){
-            $sql = "SELECT reviews.Comentario, reviews.Cant_Estrellas, reviews.Likes, 
+            $sql = "SELECT reviews.ID, reviews.Comentario, reviews.Cant_Estrellas, reviews.Likes, 
                     reviews.Dislikes, reviews.Date, peliculas.Titulo AS pelicula_titulo, 
                     peliculas.Portada AS pelicula_portada, peliculas.Descripcion AS pelicula_desc, 
                     libros.Portada AS libro_portada, libros.Titulo AS libro_titulo, 

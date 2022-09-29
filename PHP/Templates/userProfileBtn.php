@@ -13,6 +13,8 @@
         $avatar = '../../Resources/imgs/default_avatar.png';
     }elseif($sess->anon){
         $avatar = '../../Resources/imgs/Anon_avatar.png';
+    }else{
+        $avatar = '../../Uploads/'.$user.'/'.$avatar;
     }
 ?>
 <div class="dropdown">
