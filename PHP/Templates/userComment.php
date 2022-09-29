@@ -19,7 +19,11 @@
     foreach ($comms as $values) { //Carga las reviews
 ?>
         <div class="d-flex">
-        <img src="../../Uploads/<?php echo ($values['Nombre'].'/Avatar.jpg') ?>" class="card-img-user" alt="...">
+        <?php if($values['Usuario_ID'] == '0') {?>
+            <img src="../../Resources/imgs/default_avatar.png" class="card-img-user" alt="anom_avatar">
+        <?php } else {?>
+            <img src="../../Uploads/<?php echo ($values['Nombre'].'/Avatar.jpg') ?>" class="card-img-user" alt="...">
+        <?php } ?>
         <h5 class="card-p m-2"><?php echo $values['Nombre'];?></b></h5>
         </div>
         <div class="text-md-start m-2">Rating: <?php echo $values['Cant_Estrellas'];?>/5<?php echo starLoad($values['Cant_Estrellas']) ?></div>
@@ -27,3 +31,4 @@
 <?php
     }
 ?>
+
