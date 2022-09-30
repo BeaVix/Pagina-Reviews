@@ -20,9 +20,10 @@ use userSession\Session;
 <?php
     if($edit == 'true'){      
 ?>
-        <input type="file" id="avatar">
+        <input type="file" name="avatar" id="avatar">
         <div>
-            <input type="text" value="<?php echo $nom; ?>" id="nombre">
+            <label for="userName">Nombre de usuario</label>
+            <input type="text" name="userName" value="<?php echo $nom; ?>" id="nombre">
             <p class="card-text text-post">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
 
