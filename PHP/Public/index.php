@@ -2,35 +2,58 @@
     include '../Templates/header.php';
     include '../Private/Clases/librosDB.php';
     include '../Private/Clases/peliculasDB.php';
+    include '../Private/Clases/reviewsDB.php';
+    include_once '../Private/starLoad.php';
+
+    ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 
     use BDD\Tables\Peliculas;
     use BDD\Tables\Libros;
+    use BDD\Tables\Reviews;
 
     $pelArt = new Peliculas();
     $libArt = new Libros();
+    $revs = new Reviews();
 
     $peliculas = $pelArt->getPelis();
     $libros = $libArt->getLibros();
+    $reviews = $revs->getReviews();
+
+    $getRevs = $reviews->fetchAll();
+
+    $avatarAnon = "../../Resources/imgs/default_avatar.png";
+
+    foreach($getRevs as $res){
+        $modo = is_null($res['pelicula_Titulo']);
 ?>
 
 <div class="row">
     <!--Reviews mas vistos-->
     <div class="col">
-        <div class="card m-auto" style="width: 40rem;">
-            <div class="card-body text-center">Nombre de la peli</div>
+        <div class="card m-auto mb-3" style="width: 40rem;">
+            <div class="card-body text-center border-bottom"><?php echo $modo ? $res['libro_Titulo'] : $res['pelicula_Titulo']; ?></div>
             <div class="card-body">
                 <div class="d-flex mb-3">
-                    <img src="../../Resources/imgs/logo.png" class="card-img" alt="..">
-                    <h5 class="card-title m-2"><b>Nombre de usuario</b></h5>
+                <?php if($res['Usuario_ID'] == '0') {?>
+                    <img src="<?php echo $avatarAnon; ?>" class="card-img" alt="anom_avatar">
+                <?php } else {?>
+                    <img src="../../Uploads/<?php echo ($res['Nombre'].'/Avatar.jpg') ?>" class="card-img" alt="...">
+                <?php } ?>
+                    <h5 class="card-title m-2"><b><?php echo $res['Nombre'] ?></b></h5>
+                    <div><?php echo starLoad($res['Cant_Estrellas']); ?></div>
                 </div>
-                <img src="../../Resources/imgs/logo.png" class="card-img-top" alt="..">
-                <p class="card-text text-post">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="text-center pb-2">
+                <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' . $res['libro_Portada'] : 'Peliculas/' . $res['pelicula_Portada']; ?>" class="card-img-top card-img-poster" alt="...">
+                </div>
+                <p class="card-text text-post"><?php echo $res['Comentario'] ?></p>
             </div>
 
             <div class="card-body">
                 <div class="border-top d-flex">
                     <button class="btn comment text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo_comment" aria-expanded="false" aria-controls="demo_comment">
-                        <i class='bx bx-comment' style='color: black'>Comentar</i>
+                        <i class='bx bxs-comment-detail' style='color: black'><b>Comentar</b></i>
                     </button>
                     <div class="btn-group">
                         <button type="button" class="btn dislike" onclick="">
@@ -45,31 +68,35 @@
 
             <div class="collapse" id="demo_comment">
                 <div class="card-body">
-                    <form>
+                    <form id="replay<?php echo $res['ID'];?>" method="POST">
                         <div class="row">
                             <div class="col-9">
+                                <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
                                 <div class="form-floating">
-                                    <textarea class="form-control-plaintext pt-2" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
-                                    <label for="floatingTextarea">Reviews</label>
+                                    <textarea class="form-control-plaintext" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
+                                    <label for="floatingTextarea">Replay</label>
                                 </div>
                             </div>
                             <div class="col-2">
-                                <input type="submit" class="btn-comment" placeholder="Comentar" name="comment"/>
+                                <button type="button" class="btn-comment" onclick="repliesForm(<?php echo $row['ID']; ?>)" name="comment">Comentar</button>
                             </div>
                         </div>
                     </form>
                 </div>
+                <div class="card-body border-top" id="userRep<?php echo $res['ID'] ?>">
 
-                <div class="card-body border-top">
-                    <div class="d-flex">
-                        <img src="../../Resources/imgs/logo.png" class="card-img-user" alt="..">
-                        <h5 class="card-p m-2">Nombre de usuario</b>
-                    </div>
-                    <p class="text-start text-post"><small>comentario de x usuario al review.</small></p>
+                <?php 
+                    $row = $res['ID']; 
+                    
+                    include '../Templates/userReplies.php'; 
+                ?>
+
                 </div>
             </div>
         </div>
     </div>
+    
+<?php } ?>
 
     <!--Peliculas y libros recomendados-->
     <div class="col-md-5">
