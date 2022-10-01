@@ -23,6 +23,7 @@ async function reloadNav(){
     let response = await fetch('../Templates/navbar.php');
     let result = await response.text();
     nav.innerHTML = result;
+    console.log(result);
 }
 
 async function signOut(){
@@ -66,6 +67,7 @@ async function signUp(){
     }
 }
 
+/* envia el review y lo actualiza intantaneamente */
 async function reviewForm(id, modo){
     const form = document.querySelector('#review'+id);
 
@@ -97,31 +99,33 @@ async function reloadComment(id, modo){
     console.log(result);
 }
 
-async function reloadProfile(edit){
-    const profile = document.querySelector('#perfil');
-    let data = new FormData();
-    data.append('edit', edit);
-    let response = await fetch('../Templates/userProfile.php', {
+/* envia el replay y lo actualiza intantaneamente */
+async function repliesForm(id){
+    const form = document.querySelector('#replay'+id);
+
+    let data = new FormData(form);
+    let response = await fetch('../Private/repliesAuth.php', {
         method: 'POST',
         body: data
     });
-    let result = await response.text();
-    profile.innerHTML = result;
+    let res = await response.text();
+    if(res == '1'){
+        reloadReplies(id);
+        console.log('replay enviado :)');
+    }else{
+        console.log('replay no enviado :(');
+    }
 }
 
-async function sendProfileData(nombre, avatar){
+async function reloadReplies(id){
+    const replay = document.querySelector('userRep'+id);
     let data = new FormData();
-    data.append('nombre', nombre);
-    data.append('avatar', avatar);
-    let response = await fetch('../Private/updateProfile.php', {
+    data.append('id', id);
+    let response = await fetch('../Templates/userReplies.php', {
         method: 'POST',
         body: data
     });
-    let result = await response.text();
-    if(result == '1'){
-        reloadProfile(false);
-        reloadNav();
-    }else{
-        console.log(result);
-    }
+    let res = await response.text();
+    replay.innerHTMl = res;
+    console.log(res);
 }
