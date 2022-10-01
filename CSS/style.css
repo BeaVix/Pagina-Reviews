@@ -34,10 +34,6 @@ body {
     color: black;
 }
 
-.nav-user-avatar{
-    border-radius: 50%;
-}
-
 /*Dropdown*/
 
 .dropdown-menu{
@@ -174,12 +170,30 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
 
 /*Index*/
 .text-post{
+    cursor: pointer;
     margin-top: 10px;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 }
+
+.text-post:hover{
+    margin-top: 10px;
+    overflow:visible;
+    white-space:initial;
+    text-overflow: clip;
+}
+
 .card-img{
     border-radius: 50%;
     width: 60px;
     height: 60px;
+}
+
+.card-img-poster{
+    width: 505px;
+    height: 580px;
+    align-items: center;
 }
 
 .card-img-user{
@@ -211,12 +225,8 @@ textarea:focus {
 }
 
 .carousel .card-body {
-    height: max-content !important;
+    height: min-content !important;
 }
-/*
-.carousel .card {
-    margin-right: 2px !important;
-}*/
 
 /*Resto de paginas*/
 
@@ -242,8 +252,4 @@ textarea:focus {
 
 .star-picker i{
     font-size: 30px;
-}
-
-.form-control:focus {
-    outline: none !important;
 }
