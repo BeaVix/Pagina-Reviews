@@ -47,7 +47,7 @@ $avatarURL = isset($avatar) ? "../../Uploads/" . $nom . '/' . $avatar : "../../R
 
                 <div class="card-body">
                     <div class="border-top d-flex">
-                        <button class="btn comment text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo" aria-expanded="false" aria-controls="demo">
+                        <button class="btn comment text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php echo $values['ID']?>" aria-expanded="false" aria-controls="demo<?php echo $values['ID']?>">
                             <i class='bx bx-comment' style='color: black'></i> Comentar
                         </button>
                         <div class="btn-group">
@@ -63,7 +63,7 @@ $avatarURL = isset($avatar) ? "../../Uploads/" . $nom . '/' . $avatar : "../../R
                     </div>
                 </div>
 
-                <div class="collapse" id="demo">
+                <div class="collapse" id="demo<?php echo $values['ID']?>">
                     <div class="card-body">
                         <form>
                             <div class="row">

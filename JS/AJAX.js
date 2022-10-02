@@ -128,11 +128,11 @@ async function reloadComment(id, modo){
     console.log(result);
 }
 
-/* envia el replay y lo actualiza intantaneamente */
+/* envia el reply y lo actualiza intantaneamente */
 async function repliesForm(id){
-    const form = document.querySelector('#replay'+id);
-
+    const form = document.querySelector('#reply-to'+id);
     let data = new FormData(form);
+    data.append('id', id);
     let response = await fetch('../Private/repliesAuth.php', {
         method: 'POST',
         body: data
@@ -140,23 +140,23 @@ async function repliesForm(id){
     let res = await response.text();
     if(res == '1'){
         reloadReplies(id);
-        console.log('replay enviado :)');
+        console.log('reply enviado :)');
     }else{
-        console.log('replay no enviado :(');
+        console.log('reply no enviado :(');
+        console.log(res)
     }
 }
 
 async function reloadReplies(id){
-    const replay = document.querySelector('userRep'+id);
+    const replay = document.querySelector('#replies'+id);
     let data = new FormData();
     data.append('id', id);
-    let response = await fetch('../Templates/userReplies.php', {
+    let response = await fetch('../Templates/replies.php', {
         method: 'POST',
         body: data
     });
     let res = await response.text();
-    replay.innerHTMl = res;
-    console.log(res);
+    replay.innerHTML = res;
 }
 async function reloadProfile(edit){
     const profile = document.querySelector('#perfil');

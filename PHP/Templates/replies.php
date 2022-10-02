@@ -4,9 +4,15 @@
     use BDD\Tables\Replies;
 
     $bdd = new Replies();
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $revID = $_POST['id'];
+    }
     $getReps = $bdd->getRepliesReview($revID);
     $reps = $getReps->fetchAll();
 
+    if($getReps->rowCount() == 0){?>
+        <p>Se el primero en responder!</p>
+    <?php }
     foreach($reps as $r){
 ?>
 <div class="card-body border-top">

@@ -37,11 +37,7 @@
                 <div class="card-body text-center border-bottom"><?php echo $modo ? $res['libro_Titulo'] : $res['pelicula_Titulo']; ?></div>
                 <div class="card-body">
                     <div class="d-flex mb-3">
-                    <?php if($res['Usuario_ID'] == '0') {?>
-                        <img src="<?php echo $avatarAnon; ?>" class="card-img" alt="anom_avatar">
-                    <?php } else {?>
-                        <img src="../../Uploads/<?php echo ($res['Nombre'].'/Avatar.jpg') ?>" class="card-img" alt="...">
-                    <?php } ?>
+                        <img src="../../<?php echo isset($res['Avatar']) ? 'Uploads/'.$res['Nombre'].'/'.$res['Avatar'] : 'Resources/imgs/default_avatar.png' ?>" class="card-img" alt="...">
                         <h5 class="card-title m-2"><b><?php echo $res['Nombre'] ?></b></h5>
                         <div><?php echo starLoad($res['Cant_Estrellas']); ?></div>
                     </div>
@@ -87,9 +83,9 @@
                     <div class="card-body border-top" id="userRep<?php echo $res['ID'] ?>">
 
                     <?php 
-                        $row = $res['ID']; 
+                        $revID = $res['ID']; 
                         
-                        include '../Templates/userReplies.php'; 
+                        include '../Templates/replies.php'; 
                     ?>
 
                     </div>

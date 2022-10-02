@@ -15,7 +15,7 @@
         }
 
         public function getReplies(){
-            $sql = "SELECT *, usuarios.Nombre FROM replies INNER JOIN usuarios ON replies.Usuario_ID = usuarios.ID ORDER BY replies.Date DESC";
+            $sql = "SELECT replies.*, usuarios.Nombre, usuarios.Avatar FROM replies INNER JOIN usuarios ON replies.Usuario_ID = usuarios.ID ORDER BY replies.Date DESC";
             $stmt = $this->BDDCon->prepare($sql);
             $stmt->execute();
 
@@ -23,8 +23,8 @@
         }
 
         public function getRepliesReview($id){
-            $sql = "SELECT *, usuarios.Nombre FROM replies INNER JOIN usuarios ON replies.Usuario_ID = usuarios.ID 
-                    WHERE replies.User_ID = :id ORDER BY replies.Date DESC";
+            $sql = "SELECT replies.*, usuarios.Nombre, usuarios.Avatar FROM replies INNER JOIN usuarios ON replies.Usuario_ID = usuarios.ID 
+                    WHERE replies.Review_ID = :id ORDER BY replies.Date DESC";
             $stmt = $this->BDDCon->prepare($sql);
             $stmt->execute(array(':id' => $id));
 

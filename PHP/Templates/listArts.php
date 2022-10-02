@@ -72,7 +72,7 @@
                   </div>
                 </div>
                 <div class="col-2 pt-3">
-                  <button type="button" class="btn-comment" onclick="reviewForm(<?php echo $row['ID']; ?>,<?php echo $modo; ?>)" name="btn-comment">Comentar</button>
+                  <button type="button" class="btn-comment" onclick="<?php echo $loggedIn ? 'reviewForm('.$row['ID'].','.$modo.')' : 'openModal()' ;?>" name="btn-comment">Comentar</button>
                 </div>
               </div>
             </form>
