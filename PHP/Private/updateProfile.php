@@ -19,16 +19,19 @@
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : $sess->userName;
     $avatar = isset($_FILES['avatar']) ? $_FILES['avatar'] : $sess->userAvatar;
 
-    if($avatar != $sess->userAvatar && isset($sess->userAvatar)){
+    if($avatar != $sess->userAvatar){
         $picName = $avatar['name'];
         $fs->uploadToFolder($nombre, $avatar);
-        unlink('../../Uploads/'.$sess->userName.'/'.$sess->userAvatar);
     }else{
         $picName = $avatar;
     }
 
     if($nombre != $sess->userName){
-        if(file_exists('../../Uploads/'.$sess->userName)){
+        if(file_exists('../../Uploads/'.$sess->userName.'/'.$sess->userAvatar)){
+            if($avatar == $sess->userAvatar){
+                mkdir('../../Uploads/'.$nombre);
+                rename('../../Uploads/'.$sess->userName.'/'.$sess->userAvatar, '../../Uploads/'.$nombre.'/'.$sess->userAvatar);
+            }
             rmdir('../../Uploads/'.$sess->userName);
         }
     }

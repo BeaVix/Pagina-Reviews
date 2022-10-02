@@ -4,7 +4,6 @@ include_once '../Private/Clases/reviewsDB.php';
 include_once '../Private/starLoad.php';
 include_once '../Private/Clases/session.php';
 
-use BDD\Tables\Users;
 use BDD\Tables\Reviews;
 use userSession\Session;
 
@@ -30,7 +29,7 @@ $avatarURL = isset($avatar) ? "../../Uploads/" . $nom . '/' . $avatar : "../../R
     $comms = $getRevs->fetchAll();
 
     foreach ($comms as $values) {
-        $modo = is_null($values['pelicula_titulo']);
+        $modo = is_null($values['pelicula_Titulo']);
         $revID = $values['ID'];
     ?>
         <div class="col-sm">
@@ -41,8 +40,8 @@ $avatarURL = isset($avatar) ? "../../Uploads/" . $nom . '/' . $avatar : "../../R
                         <h5 class="card-title m-2"><b><?php echo $nom; ?></b></h5>
                         <div><?php echo starLoad($values['Cant_Estrellas']); ?></div>
                     </div>
-                    <div class="card-body text-center"><?php echo $modo ? $values['libro_titulo'] : $values['pelicula_titulo']; ?></div>
-                    <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' . $values['libro_portada'] : 'Peliculas/' . $values['pelicula_portada']; ?>" class="card-img-top" alt="...">
+                    <div class="card-body text-center"><?php echo $modo ? $values['libro_Titulo'] : $values['pelicula_Titulo']; ?></div>
+                    <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' . $values['libro_Portada'] : 'Peliculas/' . $values['pelicula_Portada']; ?>" class="card-img-top" alt="...">
                     <p class="card-text text-post"><?php echo $values['Comentario']; ?></p>
                 </div>
 

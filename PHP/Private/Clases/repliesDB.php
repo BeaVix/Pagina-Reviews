@@ -21,6 +21,15 @@
 
             return $stmt;
         }
+
+        public function getRepliesReview($id){
+            $sql = "SELECT *, usuarios.Nombre FROM replies INNER JOIN usuarios ON replies.Usuario_ID = usuarios.ID 
+                    WHERE replies.User_ID = :id ORDER BY replies.Date DESC";
+            $stmt = $this->BDDCon->prepare($sql);
+            $stmt->execute(array(':id' => $id));
+
+            return $stmt;
+        }
     }
 
 ?>

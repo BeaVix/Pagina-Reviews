@@ -158,3 +158,31 @@ async function reloadReplies(id){
     replay.innerHTMl = res;
     console.log(res);
 }
+async function reloadProfile(edit){
+    const profile = document.querySelector('#perfil');
+    let data = new FormData();
+    data.append('edit', edit);
+    let response = await fetch('../Templates/userProfile.php', {
+        method: 'POST',
+        body: data
+    });
+    let result = await response.text();
+    profile.innerHTML = result;
+}
+
+async function sendProfileData(nombre, avatar){
+    let data = new FormData();
+    data.append('nombre', nombre);
+    data.append('avatar', avatar);
+    let response = await fetch('../Private/updateProfile.php', {
+        method: 'POST',
+        body: data
+    });
+    let result = await response.text();
+    if(result == '1'){
+        reloadProfile(false);
+        reloadNav();
+    }else{
+        console.log(result);
+    }
+}
