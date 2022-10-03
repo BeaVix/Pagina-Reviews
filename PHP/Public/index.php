@@ -49,14 +49,6 @@
                         <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php echo $res['ID']?>" aria-expanded="false" aria-controls="collapse">
                             <i class='bx bxs-comment-detail' style='color: black'><b>Comentar</b></i>
                         </button>
-                        <div class="btn-group">
-                            <button type="button" class="btn dislike" onclick="">
-                                <i class='bx bx-dislike' style='color: black'></i>
-                            </button>
-                            <button type="button" class="btn like" onclick="">
-                                <i class='bx bx-like' style='color: black'></i>
-                            </button>
-                        </div>
                     </div>
                 </div>
 
