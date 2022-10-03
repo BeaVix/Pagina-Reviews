@@ -45,10 +45,8 @@
                 </div>
                 <!-----------COMENTARIO-------->
                 <div class="card-body">
-                <div class="accordion accordion-flush" id="demo">
-                <div class="accordion-item">
-                    <div class="border-top d-flex accordion-header"  id="flush-headingOne">
-                        <button class="accordion-button collapsed text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php echo $res['ID']?>" aria-expanded="false" aria-controls="collapseOne">
+                    <div class="border-top d-flex">
+                        <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php echo $res['ID']?>" aria-expanded="false" aria-controls="collapse">
                             <i class='bx bxs-comment-detail' style='color: black'><b>Comentar</b></i>
                         </button>
                         <div class="btn-group">
@@ -62,22 +60,21 @@
                     </div>
                 </div>
 
-                <div class="accordion-collapse collapse" id="demo<?php echo $res['ID']?>" aria-labelledby="flush-headingOne" data-bs-parent="#demo">
-                    <div class="card-body accordion-body">
-                        <form id="reply-to<?php echo $res['ID'];?>" method="POST">
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="form-floating">
-                                        <textarea class="form-control-plaintext" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
-                                        <label for="floatingTextarea">Respuesta</label>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <button type="button" class="btn-comment" onclick="<?php echo $isLogged ? 'repliesForm('.$res['ID'].')' : 'openModal()' ?>" name="comment">Comentar</button>
+                <div class="collapse" id="demo<?php echo $res['ID']?>">
+                    <form id="reply-to<?php echo $res['ID'];?>" method="POST">
+                        <div class="row">
+                            <div class="col-9">
+                                <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
+                                <div class="form-floating">
+                                    <textarea class="form-control-plaintext" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
+                                    <label for="floatingTextarea">Respuesta</label>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-2">
+                                <button type="button" class="btn-comment" onclick="<?php echo $isLogged ? 'repliesForm('.$res['ID'].')' : 'openModal()' ?>" name="comment">Comentar</button>
+                            </div>
+                        </div>
+                    </form>
                     <div class="card-body border-top" id="replies<?php echo $res['ID'] ?>">
 
                     <?php 
@@ -88,8 +85,6 @@
 
                     </div>
                 </div>
-                </div>
-                </div>
             </div>
 <?php } ?>
         </div>
@@ -97,115 +92,113 @@
         <!--Peliculas y libros recomendados-->
         
         <div class="col-6">
-            <div class="sticky-top">
-                <!--Peliculas-->
-                <div class="titulo p-3"><b>Peliculas recomendados</b></div>
+            <!--Peliculas-->
+            <div class="titulo p-3"><b>Peliculas recomendados</b></div>
 
-                <div id="demo_peliculas" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                    <?php for($i = 0; $i < 3; $i ++) { 
-                        if($i == 0){    
-                    ?>  
-                        <div class="carousel-item active" data-bs-interval="3000">                  
-                            <div class="row">
-                                <?php for($a = 0; $a < 3; $a ++) { 
-                                    $res = $peliculas->fetch();
-                                ?>
-                                <div class="col-sm-auto">
-                                    <div class="card" style="width: 12rem; height: 20rem;">
-                                        <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 16rem;"></a>
-                                        <div class="card-body bg-dark p-2">
-                                            <p class="card-text text-center text-white"><small><?php echo $res['Titulo'];?></small></p>
-                                        </div>
+            <div id="demo_peliculas" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                <?php for($i = 0; $i < 3; $i ++) { 
+                    if($i == 0){    
+                ?>  
+                    <div class="carousel-item active" data-bs-interval="3000">                  
+                        <div class="row">
+                            <?php for($a = 0; $a < 3; $a ++) { 
+                                $res = $peliculas->fetch();
+                            ?>
+                            <div class="col-sm-auto">
+                                <div class="card" style="width: 12rem; height: 20rem;">
+                                    <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 16rem;"></a>
+                                    <div class="card-body bg-dark p-2">
+                                        <p class="card-text text-center text-white"><small><?php echo $res['Titulo'];?></small></p>
                                     </div>
                                 </div>
-                                <?php } ?>
                             </div>
+                            <?php } ?>
                         </div>
-                    <?php } else{ ?>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <div class="row">
-                                <?php for($a = 0; $a < 3; $a ++) { 
-                                    $res = $peliculas->fetch();
-                                ?>
-                                <div class="col-sm-auto">
-                                    <div class="card" style="width: 12rem; height: 20rem;">
-                                        <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 16rem;"></a>
-                                        <div class="card-body bg-dark p-2">
-                                            <p class="card-text text-center text-white"><small><?php echo $res['Titulo'];?></small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    <?php } } ?>
                     </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#demo_peliculas" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#demo_peliculas" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-                
-
-                <!--Libros-->
-                <div class="titulo p-3 mt-5"><b>Libros recomendados</b></div>
-
-                <div id="demo_libros" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                    <?php for($j = 0; $j < 3; $j ++) { 
-                        if($j == 0){    
-                    ?>  
-                        <div class="carousel-item active" data-bs-interval="3000">                  
-                            <div class="row">
-                                <?php for($b = 0; $b < 3; $b ++) { 
-                                    $row = $libros->fetch();
-                                ?>
-                                <div class="col-sm-auto">
-                                    <div class="card" style="width: 12rem; height: 20rem;">
-                                        <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>"  style="height: 16rem;"></a>
-                                        <div class="card-body bg-dark p-2">
-                                            <p class="card-text text-center text-white"><small><?php echo $row['Titulo'];?></small></p>
-                                        </div>
+                <?php } else{ ?>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row">
+                            <?php for($a = 0; $a < 3; $a ++) { 
+                                $res = $peliculas->fetch();
+                            ?>
+                            <div class="col-sm-auto">
+                                <div class="card" style="width: 12rem; height: 20rem;">
+                                    <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 16rem;"></a>
+                                    <div class="card-body bg-dark p-2">
+                                        <p class="card-text text-center text-white"><small><?php echo $res['Titulo'];?></small></p>
                                     </div>
                                 </div>
-                                <?php } ?>
                             </div>
+                            <?php } ?>
                         </div>
-                    <?php } else{ ?>
-                        <div class="carousel-item" data-bs-interval="3000">
-                            <div class="row">
-                                <?php for($a = 0; $a < 3; $a ++) { 
-                                    $row = $libros->fetch();
-                                ?>
-                                <div class="col-sm-auto">
-                                    <div class="card" style="width: 12rem; height: 20rem;">
-                                        <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>" style="height: 16rem;"></a>
-                                        <div class="card-body bg-dark p-2">
-                                            <p class="card-text text-center text-white"><small><?php echo $row['Titulo'];?></small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    <?php } } ?>
                     </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#demo_libros" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#demo_libros" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                    </button>
+                <?php } } ?>
                 </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo_peliculas" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo_peliculas" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            
+
+            <!--Libros-->
+            <div class="titulo p-3 mt-5"><b>Libros recomendados</b></div>
+
+            <div id="demo_libros" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                <?php for($j = 0; $j < 3; $j ++) { 
+                    if($j == 0){    
+                ?>  
+                    <div class="carousel-item active" data-bs-interval="3000">                  
+                        <div class="row">
+                            <?php for($b = 0; $b < 3; $b ++) { 
+                                $row = $libros->fetch();
+                            ?>
+                            <div class="col-sm-auto">
+                                <div class="card" style="width: 12rem; height: 20rem;">
+                                    <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>"  style="height: 16rem;"></a>
+                                    <div class="card-body bg-dark p-2">
+                                        <p class="card-text text-center text-white"><small><?php echo $row['Titulo'];?></small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                <?php } else{ ?>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <div class="row">
+                            <?php for($a = 0; $a < 3; $a ++) { 
+                                $row = $libros->fetch();
+                            ?>
+                            <div class="col-sm-auto">
+                                <div class="card" style="width: 12rem; height: 20rem;">
+                                    <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>" style="height: 16rem;"></a>
+                                    <div class="card-body bg-dark p-2">
+                                        <p class="card-text text-center text-white"><small><?php echo $row['Titulo'];?></small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                <?php } } ?>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo_libros" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo_libros" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </div>
