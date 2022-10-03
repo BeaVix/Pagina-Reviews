@@ -65,10 +65,7 @@
                         <div class="row">
                             <div class="col-9">
                                 <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
-                                <div class="form-floating">
-                                    <textarea class="form-control-plaintext" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
-                                    <label for="floatingTextarea">Respuesta</label>
-                                </div>
+                                <textarea class="form-control-plaintext p-2" placeholder="Comentar" name="comment" id="floatingTextarea"></textarea>
                             </div>
                             <div class="col-2">
                                 <button type="button" class="btn-comment" onclick="<?php echo $isLogged ? 'repliesForm('.$res['ID'].')' : 'openModal()' ?>" name="comment">Comentar</button>
