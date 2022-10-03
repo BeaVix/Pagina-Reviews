@@ -125,7 +125,6 @@ async function reloadComment(id, modo){
     });
     let result = await response.text();
     userComment.innerHTML = result;
-    console.log(result);
 }
 
 /* envia el reply y lo actualiza intantaneamente */

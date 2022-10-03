@@ -4,10 +4,7 @@
     include '../Private/Clases/peliculasDB.php';
     include '../Private/Clases/reviewsDB.php';
     include_once '../Private/starLoad.php';
-
-    ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
+    include_once '../Private/isLogged.php';
 
     use BDD\Tables\Peliculas;
     use BDD\Tables\Libros;
@@ -67,22 +64,21 @@
 
                 <div class="accordion-collapse collapse" id="demo<?php echo $res['ID']?>" aria-labelledby="flush-headingOne" data-bs-parent="#demo">
                     <div class="card-body accordion-body">
-                        <form id="replay<?php echo $res['ID'];?>" method="POST">
+                        <form id="reply-to<?php echo $res['ID'];?>" method="POST">
                             <div class="row">
                                 <div class="col-9">
-                                    <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
                                     <div class="form-floating">
                                         <textarea class="form-control-plaintext" placeholder="Deja tu review aquí" name="comment" id="floatingTextarea"></textarea>
-                                        <label for="floatingTextarea">Replay</label>
+                                        <label for="floatingTextarea">Respuesta</label>
                                     </div>
                                 </div>
                                 <div class="col-2">
-                                    <button type="button" class="btn-comment" onclick="repliesForm(<?php echo $row['ID']; ?>)" name="comment">Comentar</button>
+                                    <button type="button" class="btn-comment" onclick="<?php echo $isLogged ? 'repliesForm('.$res['ID'].')' : 'openModal()' ?>" name="comment">Comentar</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <div class="card-body border-top" id="userRep<?php echo $res['ID'] ?>">
+                    <div class="card-body border-top" id="replies<?php echo $res['ID'] ?>">
 
                     <?php 
                         $revID = $res['ID']; 

@@ -1,12 +1,20 @@
 <?php
     include_once '../Private/Clases/reviewsDB.php';
+    include_once '../Private/Clases/session.php';
+
+    ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
     
     use BDD\Tables\Reviews;
+    use userSession\Session;
 
     if($_SERVER["REQUEST_METHOD"] != 'GET'){
         $modo = $_POST["modo"];
         $rew = $_POST["id"];
         $revs = new Reviews();
+        $sess = new Session();
+        $loggedIn = $sess->loggedIn;
         include_once '../Private/starLoad.php';
     }
     $getRevs = $modo ? $revs->getReviewsLibros($rew) : $revs->getReviewsPelis($rew);
