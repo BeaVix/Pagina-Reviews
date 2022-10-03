@@ -23,11 +23,19 @@
         }
 
         public function getRepliesReview($id){
-            $sql = "SELECT replies.*, usuarios.Nombre, usuarios.Avatar FROM replies INNER JOIN usuarios ON replies.Usuario_ID = usuarios.ID 
+            $sql = "SELECT replies.*, usuarios.Nombre, usuarios.Avatar, usuarios.ID AS usuario_ID FROM replies INNER JOIN usuarios ON replies.Usuario_ID = usuarios.ID 
                     WHERE replies.Review_ID = :id ORDER BY replies.Date DESC";
             $stmt = $this->BDDCon->prepare($sql);
             $stmt->execute(array(':id' => $id));
 
+            return $stmt;
+        }
+
+        public function deleteReply($id){
+            $sql = "DELETE FROM replies WHERE ID = :id";
+            $stmt = $this->BDDCon->prepare($sql);
+            $stmt->execute(array(':id' => $id));
+    
             return $stmt;
         }
     }

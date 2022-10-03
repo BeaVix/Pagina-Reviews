@@ -25,7 +25,7 @@
 <div class="container overflow-hidden">
     <div class="row">
         <!--Reviews mas vistos-->
-        <div class="col-6">
+        <div class="col-6" id="reviews">
 <?php
     foreach($getRevs as $res){
         $modo = is_null($res['pelicula_Titulo']);
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="card-body border-top" id="replies<?php echo $res['ID'] ?>">
+                    <div class="card-body border-top replies" id="replies<?php echo $res['ID'] ?>">
 
                     <?php 
                         $revID = $res['ID']; 

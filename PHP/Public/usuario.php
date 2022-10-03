@@ -22,7 +22,9 @@ $avatarURL = isset($avatar) ? "../../Uploads/" . $nom . '/' . $avatar : "../../R
     <hr>
 
     <div id="perfil-reviews">
-        <?php include '../Templates/userReviews.php' ?>
+        <div id="reviews">
+            <?php include '../Templates/userReviews.php' ?>
+        </div>
     </div>
 </div>
 <script src="../../JS/editProfile.js"></script>

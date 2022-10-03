@@ -47,7 +47,7 @@
             <button type="button" class="btn-comment" onclick="<?php echo $loggedIn ? 'repliesForm('.$values['ID'].')' : 'openModal()' ;?>" name="btn-comment">Comentar</button>
         </div>
         <!--Respuestas-->
-        <div class="collapse" id="replies<?php echo $values['ID']?>">
+        <div class="collapse replies" id="replies<?php echo $values['ID']?>">
             <?php include '../Templates/replies.php' ?>
         </div>
 <?php

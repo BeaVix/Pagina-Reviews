@@ -71,7 +71,7 @@ foreach ($comms as $values) {
                 </div>
             </div>
             <!--Replies-->
-            <div id="replies-<?php echo $revID; ?>">
+            <div class="replies" id="replies<?php echo $revID; ?>">
                 <?php include '../Templates/replies.php'; ?>
             </div>
         </div>

@@ -4,7 +4,7 @@
   include '../Private/starLoad.php';  
 ?>
 
-<div class="container text-center">
+<div class="container text-center" id="reviews">
 
 <?php
   use BDD\Tables\Peliculas;
@@ -83,11 +83,11 @@
           </div>
         <!--Reviews-->
         <div class="card-body border-top pt-2" id="comment<?php echo $row['ID']?>">
-        <?php 
-          $rew = $row['ID'];
-          
-          include 'userComment.php';
-        ?>
+          <?php 
+            $rew = $row['ID'];
+            
+            include 'userComment.php';
+          ?>
         </div>
         </div>
       </div>

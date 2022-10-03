@@ -157,6 +157,23 @@ async function reloadReplies(id){
     let res = await response.text();
     replay.innerHTML = res;
 }
+
+async function deleteReply(id, revId){
+    let data = new FormData();
+    data.append('id', id);
+    let response = await fetch('../Private/deleteReply.php', {
+        method: 'POST',
+        body: data
+    });
+    let res = await response.text();
+    if(res == '1'){
+        reloadReplies(revId);
+        console.log('reply eliminado)');
+    }else{
+        console.log(res);
+    }
+}
+
 async function reloadProfile(edit){
     const profile = document.querySelector('#perfil');
     let data = new FormData();

@@ -11,6 +11,7 @@
     <link href="../../Resources/imgs/favicon.png" type="image/png" rel="icon">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../JS/deleteReply.js"></script>
     <title>Real ReView</title>
 </head>
 <body>
