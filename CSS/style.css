@@ -265,3 +265,7 @@ textarea:focus {
 .star-picker i{
     font-size: 30px;
 }
+
+textarea{
+    background-color: whitesmoke !important;
+}
