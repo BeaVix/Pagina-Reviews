@@ -40,12 +40,12 @@
 
         <div><b>Rating: </b><?php echo $row['Rating'];?>/5 <?php echo starLoad($row['Rating']);?></div>
           <div class="ms-auto">
-            <i class='bx bxs-comment-detail' data-bs-toggle="collapse" data-bs-target="#demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>" aria-expanded="false" aria-controls="demo"></i> 
+            <i class='bx bxs-comment-detail' data-bs-toggle="collapse" data-bs-target="#Reviews<?php echo $row['ID'];?>" aria-expanded="false" aria-controls="Reviews<?php echo $row['ID'];?>"></i> 
             <b>Reviews: <?php echo $getRevs->rowCount()?></b>
           </div>
         </div>
 
-        <div class="collapse" id="demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>">
+        <div class="collapse" id="Reviews<?php echo $row['ID'];?>">
           <div class="card-body">
             <form id="review<?php echo $row['ID'];?>" method="POST">
               <div class="star-picker-container">

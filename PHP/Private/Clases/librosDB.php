@@ -8,7 +8,7 @@
     class Libros extends Database{
 
         public function getLibros(){
-            $sql = "SELECT *, generos.Nombre FROM libros INNER JOIN generos 
+            $sql = "SELECT libros.*, generos.Nombre FROM libros INNER JOIN generos 
                     ON libros.ID_Genero = generos.ID";
             $stmt = $this->BDDCon->prepare($sql);
             $stmt->execute();
