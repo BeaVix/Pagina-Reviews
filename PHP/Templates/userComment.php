@@ -16,19 +16,19 @@
         $revID = $values['ID']
 ?>
         <div class="d-flex">
-        <img src="<?php echo isset($values['Avatar']) ? '../../Uploads/'.$values['Nombre'].'/'.$values['Avatar'] : '../../Resources/imgs/default_avatar.png' ?>" class="card-img-user" alt="anon_avatar">
-        <h5 class="card-p m-2"><?php echo $values['Nombre'];?></b></h5>
+            <img src="<?php echo isset($values['Avatar']) ? '../../Uploads/'.$values['Nombre'].'/'.$values['Avatar'] : '../../Resources/imgs/default_avatar.png' ?>" class="card-img-user" alt="anon_avatar">
+            <h5 class="card-p m-2"><?php echo $values['Nombre'];?></b></h5>
         </div>
         <div class="text-md-start m-2">Rating: <?php echo $values['Cant_Estrellas'];?>/5<?php echo starLoad($values['Cant_Estrellas']) ?></div>
         <p class="text-start text-post"><small><?php echo $values['Comentario'];?></small></p>
 
-        <div class="m-auto">
-            <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#replies<?php echo $values['ID'] ?>" aria-expanded="false" aria-controls="collapse">
+        <div class="d-flex m-3">
+            <button class="btn p-0 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#replies<?php echo $values['ID'] ?>" aria-expanded="false" aria-controls="collapse">
                 <b>Responder</b>
             </button>
         </div>
         <!--Formulario para mandar respuesta-->
-        <div class="collapse" id="replies<?php echo $values['ID']?>">
+        <div class="collapse ms-3" id="replies<?php echo $values['ID']?>">
             <form id="reply-to<?php echo $values['ID']?>">
                 <div class="row user-replies">
                     <div class="col-9">

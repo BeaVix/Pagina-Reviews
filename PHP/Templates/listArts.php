@@ -17,14 +17,12 @@
   $getArts = $modo ? $arts->getLibros() : $arts->getPelis();
   $res = $getArts->fetchAll();
 
-  $out = '';
-
   foreach ($res as $row) {
     $getRevs = $modo ? $revs->getReviewsLibros($row['ID']) : $revs->getReviewsPelis($row['ID']);
-  ?>
-    <div class="row pb-5">
+?>
+    <div class="row">
 
-      <div class="col-md-auto">
+      <div class="col-md-auto mb-4">
         <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' : 'Peliculas/'; echo $row['Portada'];?>" class="Poster" alt="<?php echo $modo ? 'Libro' : 'Pelicula';?>">
       </div>
 
@@ -39,11 +37,10 @@
         <!-----------COMENTARIO-------->
           <div class="d-flex pb-2">
             <div><b>Rating: </b><?php echo $row['Rating'];?>/5 <?php echo starLoad($row['Rating']);?></div>
-              <div class="ms-auto">
-                <button class="btn collapsed text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>" aria-expanded="false" aria-controls="collapse">
-                    <i class='bx bxs-comment-detail' style='color: black'><b>Reviews:<?php echo $getRevs->rowCount()?></b></i>
-                </button>
-              </div>
+            <div class="ms-auto">
+              <button class="btn collapsed text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>" aria-expanded="false" aria-controls="collapse">
+                  <i class='bx bxs-comment-detail' style='color: black'><b>Reviews:<?php echo $getRevs->rowCount()?></b></i>
+              </button>
             </div>
           </div>
 
@@ -88,7 +85,6 @@
       </div>
 <?php
   }
-  echo $out;
 ?>  
     </div>
 

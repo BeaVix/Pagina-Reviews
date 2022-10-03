@@ -17,7 +17,7 @@
     <?php }
     foreach($reps as $r){
 ?>
-    <div class="card-body border-top">
+    <div class="card-body mt-3 w-75">
         <div class="d-flex">
             <img src="<?php echo isset($r['Avatar']) ? "../../Uploads/".$r['Nombre'].'/'.$r['Avatar'] : "../../Resources/imgs/default_avatar.png"?>" class="card-img-user" alt="...">
             <h5 class="card-p m-2"><?php echo $r['Nombre']; ?></b>
@@ -25,3 +25,5 @@
         <p class="text-start text-post"><small><?php echo $r['Comentario']; ?></small></p>
     </div>
 <?php } ?>
+
+    <hr>
