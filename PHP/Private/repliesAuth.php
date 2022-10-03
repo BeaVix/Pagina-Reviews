@@ -21,8 +21,13 @@
       }
       $fecha = date('Y-m-d H:i:s');
       $comm = $_POST['comment'];
-      $datos = array($id, $revId, $comm, $fecha);
 
+      if($comm != ''){
+            $datos = array($id, $revId, $comm, $fecha);
+      } else {
+            echo 'campo vacio';
+      }
+      
       if($sess){
             $revs->addReplies($datos);
             echo '1';

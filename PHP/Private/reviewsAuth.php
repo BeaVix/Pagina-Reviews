@@ -24,7 +24,12 @@
       $fecha = date('Y-m-d H:i:s');
       
       $comm = $_POST['comment'];
-      $datos = array($artId, $id, $comm, $rating, $fecha);
+
+      if($comm != ''){
+            $datos = array($artId, $id, $comm, $rating, $fecha);
+      } else {
+            echo 'campo vacio';
+      }
 
       if($sess){
             $revs->addReview($modo, $datos);
