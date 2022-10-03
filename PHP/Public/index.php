@@ -68,9 +68,7 @@
                         <div class="row">
                             <div class="col-9">
                                 <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
-                                <div class="form-floating">
-                                    <textarea class="form-control-plaintext" placeholder="Comentar" name="comment" id="floatingTextarea"></textarea>
-                                </div>
+                                <textarea class="form-control-plaintext p-2" placeholder="Comentar" name="comment" id="floatingTextarea"></textarea>
                             </div>
                             <div class="col-2">
                                 <button type="button" class="btn-comment" onclick="repliesForm(<?php echo $row['ID']; ?>)" name="comment">Comentar</button>
