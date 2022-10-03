@@ -43,7 +43,6 @@ body {
 .dropdown-item{
     width: 550px;
     background-color: white;
-    z-index: 1050 !important;
 }
 .dropdown-item:hover{
     background-color: white;
@@ -95,6 +94,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
     cursor: pointer;
     width: 90%;
     border-radius: 0px;
+    opacity: 0.8;
 }
 
 .success{
@@ -268,8 +268,4 @@ textarea:focus {
 
 textarea{
     background-color: whitesmoke !important;
-}
-
-.user-replies {
-    width: 75%;
 }
