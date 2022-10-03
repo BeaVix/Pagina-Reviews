@@ -22,12 +22,13 @@
     <?php }
     foreach($reps as $r){
 ?>
-<div class="card-body border-top">
+<div class="card-body border-top mt-3 w-75">
     <div class="d-flex">
         <img src="<?php echo isset($r['Avatar']) ? "../../Uploads/".$r['Nombre'].'/'.$r['Avatar'] : "../../Resources/imgs/default_avatar.png"?>" class="card-img-user" alt="...">
         <h5 class="card-p m-2"><?php echo $r['Nombre']; ?></b>
         <?php echo ($sess->userId == $r['usuario_ID']) ?  '<i class="bx bx-trash fs-3 delete-Reply" id="delete-'.$r['ID'].'" style="color:red"></i>' : '' ?>
+        <p class="text-start text-post"><small><?php echo $r['Comentario']; ?></small></p>
     </div>
-    <p class="text-start text-post"><small><?php echo $r['Comentario']; ?></small></p>
-</div>
 <?php } ?>
+
+    <hr>
