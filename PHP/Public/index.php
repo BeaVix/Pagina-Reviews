@@ -75,7 +75,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="card-body border-top" id="userRep<?php echo $res['ID'] ?>">
+                    <div class="card-body border-top mt-3" id="userRep<?php echo $res['ID'] ?>">
 
                     <?php 
                         $revID = $res['ID']; 
