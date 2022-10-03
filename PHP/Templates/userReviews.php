@@ -39,20 +39,10 @@ foreach ($comms as $values) {
             </div>
 
             <div class="card-body">
-                <div class="border-top d-flex">
+                <div class="d-flex">
                     <button class="btn comment text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php echo $values['ID'] ?>" aria-expanded="false" aria-controls="demo<?php echo $values['ID'] ?>">
                         <i class='bx bx-comment' style='color: black'></i> Comentar
                     </button>
-                    <div class="btn-group">
-                        <button type="button" class="btn dislike" onclick="">
-                            <i class='bx bx-dislike' style='color: black'></i>
-                        </button>
-                        <?php echo $values['Dislikes'] ?>
-                        <button type="button" class="btn like" onclick="">
-                            <i class='bx bx-like' style='color: black'></i>
-                        </button>
-                        <?php echo $values['Likes'] ?>
-                    </div>
                 </div>
             </div>
 

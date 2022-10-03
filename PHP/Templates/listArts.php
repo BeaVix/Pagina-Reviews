@@ -65,7 +65,7 @@
                   <div class="col-9">
                     <input type="hidden" name="modo" value="<?php echo $modo ?>">
                     <input type="hidden" name="id" value="<?php echo $row['ID'];?>">
-                    <textarea class="form-control-plaintext p-2" placeholder="Review..." name="comment" id="floatingTextarea"></textarea>
+                    <textarea class="form-control-plaintext p-2" placeholder="Review..." name="comment" id="Textarea"></textarea>
                   </div>
                   <div class="col-2 pt-3">
                     <button type="button" class="btn-comment" onclick="<?php echo $loggedIn ? 'reviewForm('.$row['ID'].','.$modo.')' : 'openModal()' ;?>" name="btn-comment">Comentar</button>

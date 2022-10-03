@@ -31,14 +31,13 @@
                 <b>Responder</b>
             </button>
         </div>
-
-        <hr>
+        
         <!--Formulario para mandar respuesta-->
         <div class="collapse ms-3" id="comment-box<?php echo $values['ID'] ?>">
             <form id="reply-to<?php echo $values['ID']?>">
                 <div class="row user-replies">
                     <div class="col-9">
-                        <textarea class="form-control-plaintext p-2" placeholder="Comentar..." name="comment" id="floatingTextarea"></textarea>
+                        <textarea class="form-control-plaintext p-2" placeholder="Comentar..." name="comment" id="Textarea"></textarea>
                     </div>
                     <div class="col-2 pt-3">
                         <button type="button" class="btn-comment" onclick="<?php echo $loggedIn ? 'repliesForm('.$values['ID'].')' : 'openModal()' ;?>" name="btn-comment">Comentar</button>
@@ -48,6 +47,7 @@
         <!--Respuestas-->
             <div class="replies" id="replies<?php echo $values['ID']?>">
                 <?php include '../Templates/replies.php' ?>
+                <hr>
             </div>
         </div>
 <?php
