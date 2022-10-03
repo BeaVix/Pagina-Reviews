@@ -36,17 +36,21 @@
         <p><b><?php echo $modo ? 'Autor: </b>'.$row['Autor'] : 'Director: </b>'.$row['Director'];?></p>
       </div>
 
-      <div class="d-flex pb-2">
-
-        <div><b>Rating: </b><?php echo $row['Rating'];?>/5 <?php echo starLoad($row['Rating']);?></div>
-          <div class="ms-auto">
-            <i class='bx bxs-comment-detail' data-bs-toggle="collapse" data-bs-target="#Reviews<?php echo $row['ID'];?>" aria-expanded="false" aria-controls="Reviews<?php echo $row['ID'];?>"></i> 
-            <b>Reviews: <?php echo $getRevs->rowCount()?></b>
+      <!-----------COMENTARIO-------->
+      <div class="accordion accordion-flush" id="demo">
+      <div class="accordion-item">
+        <div class="d-flex accordion-header pb-2"  id="headingOne">
+          <div><b>Rating: </b><?php echo $row['Rating'];?>/5 <?php echo starLoad($row['Rating']);?></div>
+            <div class="ms-auto">
+              <button class="accordion-button collapsed text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>" aria-expanded="false" aria-controls="collapseOne">
+                  <i class='bx bxs-comment-detail' style='color: black'><b>Reviews: <?php echo $getRevs->rowCount()?></b></i>
+              </button>
+            </div>
           </div>
         </div>
 
-        <div class="collapse" id="Reviews<?php echo $row['ID'];?>">
-          <div class="card-body">
+        <div class="accordion-collapse collapse" id="demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>" aria-labelledby="flush-headingOne" data-bs-parent="#demo">
+          <div class="card-body  accordion-body">
             <form id="review<?php echo $row['ID'];?>" method="POST">
               <div class="star-picker-container">
                 <b>Su rating:</b>
@@ -86,6 +90,7 @@
         ?>
         </div>
         </div>
+      </div>
       </div>
     </div>
 <?php

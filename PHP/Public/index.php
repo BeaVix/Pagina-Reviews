@@ -46,10 +46,12 @@
                     </div>
                     <p class="card-text text-post text-truncate"><?php echo $res['Comentario'] ?></p>
                 </div>
-
+                <!-----------COMENTARIO-------->
                 <div class="card-body">
-                    <div class="border-top d-flex">
-                        <button class="btn comment text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo_comment" aria-expanded="false" aria-controls="demo_comment">
+                <div class="accordion accordion-flush" id="demo">
+                <div class="accordion-item">
+                    <div class="border-top d-flex accordion-header"  id="flush-headingOne">
+                        <button class="accordion-button collapsed text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php echo $res['ID']?>" aria-expanded="false" aria-controls="collapseOne">
                             <i class='bx bxs-comment-detail' style='color: black'><b>Comentar</b></i>
                         </button>
                         <div class="btn-group">
@@ -63,8 +65,8 @@
                     </div>
                 </div>
 
-                <div class="collapse" id="demo_comment">
-                    <div class="card-body">
+                <div class="accordion-collapse collapse" id="demo<?php echo $res['ID']?>" aria-labelledby="flush-headingOne" data-bs-parent="#demo">
+                    <div class="card-body accordion-body">
                         <form id="replay<?php echo $res['ID'];?>" method="POST">
                             <div class="row">
                                 <div class="col-9">
@@ -89,6 +91,8 @@
                     ?>
 
                     </div>
+                </div>
+                </div>
                 </div>
             </div>
 <?php } ?>
