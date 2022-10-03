@@ -22,24 +22,24 @@
         <div class="text-md-start m-2">Rating: <?php echo $values['Cant_Estrellas'];?>/5<?php echo starLoad($values['Cant_Estrellas']) ?></div>
         <p class="text-start text-post"><small><?php echo $values['Comentario'];?></small></p>
 
-        <div class="ms-auto">
-            <i class='bx bxs-comment-detail' data-bs-toggle="collapse" data-bs-target="#replies<?php echo $values['ID'] ?>" aria-expanded="false" aria-controls="replies<?php echo $values['ID'] ?>"></i> 
-            <b>Respuestas</b>
+        <div class="m-auto">
+            <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#replies<?php echo $values['ID'] ?>" aria-expanded="false" aria-controls="collapse">
+                <b>Responder</b>
+            </button>
         </div>
-
-        <hr>
         <!--Formulario para mandar respuesta-->
-        <div class="form-floating">
-            <form id="reply-to<?php echo $values['ID']?>">
-                <label for="comment">Respuesta</label>
-                <textarea class="form-control-plaintext pt-1" placeholder="Deja aquí tu respuesta" name="comment" id="floatingTextarea"></textarea>
-            </form>
-        </div>
-        <div class="col-2 pt-3">
-            <button type="button" class="btn-comment" onclick="<?php echo $loggedIn ? 'repliesForm('.$values['ID'].')' : 'openModal()' ;?>" name="btn-comment">Comentar</button>
-        </div>
-        <!--Respuestas-->
         <div class="collapse" id="replies<?php echo $values['ID']?>">
+            <form id="reply-to<?php echo $values['ID']?>">
+                <div class="row user-replies">
+                    <div class="col-9">
+                        <textarea class="form-control-plaintext p-2" placeholder="Comentar..." name="comment" id="floatingTextarea"></textarea>
+                    </div>
+                    <div class="col-2 pt-3">
+                        <button type="button" class="btn-comment" onclick="<?php echo $loggedIn ? 'repliesForm('.$values['ID'].')' : 'openModal()' ;?>" name="btn-comment">Comentar</button>
+                    </div>
+                </div>
+            </form>
+        <!--Respuestas-->
             <?php include '../Templates/replies.php' ?>
         </div>
 <?php
