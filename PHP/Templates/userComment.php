@@ -1,10 +1,6 @@
 <?php
     include_once '../Private/Clases/reviewsDB.php';
     include_once '../Private/Clases/session.php';
-
-    ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
     
     use BDD\Tables\Reviews;
     use userSession\Session;
@@ -31,14 +27,14 @@
         <p class="text-start text-post"><small><?php echo $values['Comentario'];?></small></p>
 
         <div class="d-flex m-3">
-            <button class="btn p-0 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#replies<?php echo $values['ID'] ?>" aria-expanded="false" aria-controls="collapse">
+            <button class="btn p-0 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#comment-box<?php echo $values['ID'] ?>" aria-expanded="false" aria-controls="collapse">
                 <b>Responder</b>
             </button>
         </div>
 
         <hr>
         <!--Formulario para mandar respuesta-->
-        <div class="collapse ms-3" id="replies<?php echo $values['ID']?>">
+        <div class="collapse ms-3" id="comment-box<?php echo $values['ID'] ?>">
             <form id="reply-to<?php echo $values['ID']?>">
                 <div class="row user-replies">
                     <div class="col-9">
@@ -50,7 +46,9 @@
                 </div>
             </form>
         <!--Respuestas-->
-            <?php include '../Templates/replies.php' ?>
+            <div class="replies" id="replies<?php echo $values['ID']?>">
+                <?php include '../Templates/replies.php' ?>
+            </div>
         </div>
 <?php
     }
