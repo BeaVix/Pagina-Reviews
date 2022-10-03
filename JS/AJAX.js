@@ -170,6 +170,15 @@ async function reloadProfile(edit){
     profile.innerHTML = result;
 }
 
+async function reloadProfileReviews(){
+    const profBody = document.querySelector('#perfil-reviews');
+    let response = await fetch('../Templates/userReviews.php', {
+        method: 'POST'
+    });
+    let result = await response.text();
+    profBody.innerHTML = result;
+}
+
 async function sendProfileData(nombre, avatar){
     let data = new FormData();
     data.append('nombre', nombre);
@@ -185,4 +194,18 @@ async function sendProfileData(nombre, avatar){
     }else{
         console.log(result);
     }
+}
+
+async function deleteReview(id){
+    let data = new FormData();
+    data.append('id', id);
+    let response = await fetch('../Private/deleteReview.php', {
+        method: 'POST',
+        body: data
+    });
+    let result = await response.text();
+    if(result == '1'){
+        reloadProfileReviews();
+    }
+    console.log(result);
 }

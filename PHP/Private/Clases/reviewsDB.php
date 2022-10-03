@@ -64,7 +64,7 @@
         }
 
         public function deleteReviews($id){
-            $sql = "DELETE * FROM reviews WHERE ID = :id";
+            $sql = "DELETE FROM reviews WHERE ID = :id";
             $stmt = $this->BDDCon->prepare($sql);
             $stmt->execute(array(':id' => $id));
     

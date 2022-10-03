@@ -5,7 +5,9 @@
 
     $bdd = new Replies();
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $revID = $_POST['id'];
+        if (isset($_POST['id'])){
+            $revID = $_POST['id'];
+        }   
     }
     $getReps = $bdd->getRepliesReview($revID);
     $reps = $getReps->fetchAll();
