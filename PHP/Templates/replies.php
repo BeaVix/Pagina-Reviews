@@ -31,3 +31,5 @@
     <p class="text-start text-post"><small><?php echo $r['Comentario']; ?></small></p>
 </div>
 <?php } ?>
+
+    <hr>
