@@ -99,7 +99,6 @@ async function signUp(){
 /* envia el review y lo actualiza intantaneamente */
 async function reviewForm(id, modo){
     const form = document.querySelector('#review'+id);
-
     let content = new FormData(form);
     let response = await fetch('../Private/reviewsAuth.php', {
         method: 'POST',
@@ -108,6 +107,7 @@ async function reviewForm(id, modo){
     let res = await response.text();
     if(res == '1'){
         reloadComment(id, modo);
+        cleanText();
         console.log('Review enviado :)');
     }else{
         console.log('Review no enviado :(');
@@ -139,6 +139,7 @@ async function repliesForm(id){
     let res = await response.text();
     if(res == '1'){
         reloadReplies(id);
+        cleanText();
         console.log('reply enviado :)');
     }else{
         console.log('reply no enviado :(');
@@ -224,4 +225,13 @@ async function deleteReview(id){
         reloadProfileReviews();
     }
     console.log(result);
+}
+
+function cleanText(){
+    const btn = document.querySelector(".btn-comment");
+    const textarea = document.getElementsByTagName("textarea");
+
+    btn.addEventListener("click", function(){
+        textarea.value = " ";
+    });
 }
