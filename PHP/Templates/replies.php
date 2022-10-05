@@ -8,7 +8,7 @@
     $bdd = new Replies();
     $sess = new Session();
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['reloadReps'])){
         if (isset($_POST['id'])){
             $revID = $_POST['id'];
         }
@@ -18,7 +18,7 @@
     $reps = $getReps->fetchAll();
 
     if($getReps->rowCount() == 0){?>
-        <p>Se el primero en responder!</p>
+        <p class="ps-3">Se el primero en responder!</p>
     <?php }
     foreach($reps as $r){
 ?>

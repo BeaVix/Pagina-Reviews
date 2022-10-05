@@ -96,7 +96,7 @@
                             ?>
                             <div class="col-sm-auto">
                                 <div class="card" style="width: 12rem; height: 20rem;">
-                                    <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 16rem;"></a>
+                                    <a href="peliculas.php#<?php echo $res['Titulo'];?>"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 16rem;"></a>
                                     <div class="card-body bg-dark p-2">
                                         <p class="card-text text-center text-white"><small><?php echo $res['Titulo'];?></small></p>
                                     </div>
@@ -113,7 +113,7 @@
                             ?>
                             <div class="col-sm-auto">
                                 <div class="card" style="width: 12rem; height: 20rem;">
-                                    <a href="#"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 16rem;"></a>
+                                    <a href="peliculas.php#<?php echo $res['Titulo'];?>"><img src="../../Resources/imgs/Peliculas/<?php echo $res['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $res['Titulo']; ?>" style="height: 16rem;"></a>
                                     <div class="card-body bg-dark p-2">
                                         <p class="card-text text-center text-white"><small><?php echo $res['Titulo'];?></small></p>
                                     </div>
@@ -151,7 +151,7 @@
                             ?>
                             <div class="col-sm-auto">
                                 <div class="card" style="width: 12rem; height: 20rem;">
-                                    <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>"  style="height: 16rem;"></a>
+                                    <a href="libros.php#<?php echo $row['Titulo'];?>"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>"  style="height: 16rem;"></a>
                                     <div class="card-body bg-dark p-2">
                                         <p class="card-text text-center text-white"><small><?php echo $row['Titulo'];?></small></p>
                                     </div>
@@ -168,7 +168,7 @@
                             ?>
                             <div class="col-sm-auto">
                                 <div class="card" style="width: 12rem; height: 20rem;">
-                                    <a href="#"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>" style="height: 16rem;"></a>
+                                    <a href="libros.php#<?php echo $row['Titulo'];?>"><img src="../../Resources/imgs/Libros/<?php echo $row['Portada']; ?>" class="card-img-top img-carrousel d-block" alt="<?php echo $row['Titulo']; ?>" style="height: 16rem;"></a>
                                     <div class="card-body bg-dark p-2">
                                         <p class="card-text text-center text-white"><small><?php echo $row['Titulo'];?></small></p>
                                     </div>

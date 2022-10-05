@@ -18,12 +18,24 @@
   $res = $getArts->fetchAll();
 
   foreach ($res as $row) {
+    $rating = 0;
     $getRevs = $modo ? $revs->getReviewsLibros($row['ID']) : $revs->getReviewsPelis($row['ID']);
+    $fetchRevs = $getRevs->fetchAll();
+
+    foreach($fetchRevs as $valor){
+        $rating += $valor['Cant_Estrellas'];
+    }
+    if($rating > 0){
+      $rating = $rating / $getRevs->rowCount();
+      if(is_float($rating)){
+        $rating = floor($rating) + 0.5;
+      }
+    }
     ?>
-    <div class="row">
+    <div class="row" id="<?php echo $row['Titulo'];?>">
 
     <div class="col-md-auto mb-4">
-      <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' : 'Peliculas/'; echo $row['Portada'];?>" class="Poster" alt="<?php echo $modo ? 'Libro' : 'Pelicula';?>">
+      <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' : 'Peliculas/'; echo $row['Portada'];?>" class="Poster text-center" alt="<?php echo $modo ? 'Libro' : 'Pelicula';?>">
     </div>
 
     <div class="col-8 ps-auto">
@@ -36,7 +48,7 @@
 
       <!-----------COMENTARIO-------->
           <div class="d-flex pb-2">
-            <div><b>Rating: </b><?php echo $row['Rating'];?>/5 <?php echo starLoad($row['Rating']);?></div>
+            <div><b>Rating: </b><?php echo $rating;?>/5 <?php echo starLoad($rating);?></div>
             <div class="ms-auto">
               <button class="btn collapsed text-start" type="button" data-bs-toggle="collapse" data-bs-target="#demo<?php $modo ? 'Libros/' : 'Peliculas/'; echo $row['ID'];?>" aria-expanded="false" aria-controls="collapse">
                   <i class='bx bxs-comment-detail' style='color: black'><b>Reviews:<?php echo $getRevs->rowCount()?></b></i>

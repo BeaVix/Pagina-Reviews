@@ -44,9 +44,10 @@
 				$email = $data['Email'];
 				$nom = $data['Nombre'];
 				$avatar = $data['Avatar'];
+				$desc = $data['Descripcion'];
 				$id = $data['ID'];
 				$sess = new session();
-				$sess->login($nom, $email, $avatar, $id);
+				$sess->login($nom, $email, $avatar, $id, $desc);
 				return true;
 			} else{
 				return false;

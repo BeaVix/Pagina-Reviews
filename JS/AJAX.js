@@ -107,7 +107,6 @@ async function reviewForm(id, modo){
     let res = await response.text();
     if(res == '1'){
         reloadComment(id, modo);
-        cleanText();
         console.log('Review enviado :)');
     }else{
         console.log('Review no enviado :(');
@@ -139,7 +138,6 @@ async function repliesForm(id){
     let res = await response.text();
     if(res == '1'){
         reloadReplies(id);
-        cleanText();
         console.log('reply enviado :)');
     }else{
         console.log('reply no enviado :(');
@@ -151,6 +149,7 @@ async function reloadReplies(id){
     const replay = document.querySelector('#replies'+id);
     let data = new FormData();
     data.append('id', id);
+    data.append('reloadReps', true);
     let response = await fetch('../Templates/replies.php', {
         method: 'POST',
         body: data
@@ -196,10 +195,12 @@ async function reloadProfileReviews(){
     profBody.innerHTML = result;
 }
 
-async function sendProfileData(nombre, avatar){
+//Actualiza datos del perfil
+async function sendProfileData(nombre, avatar, desc){
     let data = new FormData();
     data.append('nombre', nombre);
     data.append('avatar', avatar);
+    data.append('desc', desc);
     let response = await fetch('../Private/updateProfile.php', {
         method: 'POST',
         body: data
@@ -225,13 +226,4 @@ async function deleteReview(id){
         reloadProfileReviews();
     }
     console.log(result);
-}
-
-function cleanText(){
-    const btn = document.querySelector(".btn-comment");
-    const textarea = document.getElementsByTagName("textarea");
-
-    btn.addEventListener("click", function(){
-        textarea.value = " ";
-    });
 }

@@ -9,6 +9,7 @@ $sess = new Session();
 $nom = $sess->userName;
 $avatar = $sess->userAvatar;
 $id = $sess->userId;
+$desc = $sess->desc;
 
 $avatarURL = isset($avatar) ? "../../Uploads/" . $nom . '/' . $avatar : "../../Resources/imgs/default_avatar.png";
 ?>

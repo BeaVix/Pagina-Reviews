@@ -23,7 +23,9 @@
     </a>
 
     <div class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="userDropdown">
+    <?php if (!$sess->anon){ ?>
         <a href="../Public/usuario.php"><button class="dropdown-item">Ver perfil</button></a>
+    <?php } ?>
         <button class="dropdown-item" id="btn-cerrar-sesion" onclick="signOut();">cerrar sesión</button>
   </div>
 </div>

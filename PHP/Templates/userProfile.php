@@ -9,6 +9,7 @@ use userSession\Session;
         $nom = $sess->userName;
         $avatar = $sess->userAvatar;
         $avatarURL = isset($sess->userAvatar) ? "../../Uploads/" . $nom . '/' . $avatar : "../../Resources/imgs/default_avatar.png";
+        $desc = $sess->desc;
     }else{
         $edit = false;
     }
@@ -23,8 +24,9 @@ use userSession\Session;
         <input type="file" name="avatar" id="avatar">
         <div>
             <label for="userName">Nombre de usuario</label>
-            <input type="text" name="userName" value="<?php echo $nom; ?>" id="nombre">
-            <p class="card-text text-post">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <input type="text" class="border" name="userName" value="<?php echo $nom; ?>" id="nombre">
+            <label for="descUser">Descripción de usuario</label>
+            <input type="text" class="border" name="descUser" value="<?php echo $desc; ?>" id="desc">
         </div>
 
 <?php }else{ ?>
@@ -32,8 +34,8 @@ use userSession\Session;
     
         <img src="<?php echo $avatarURL; ?>" class="userPerfil" id="avatar" alt="Foto de perfil">
         <div>
-            <h5 class="card-title m-2" id="nombre"><b><?php echo $nom; ?></b></h5>
-            <p class="card-text text-post">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title m-3" id="nombre"><b><?php echo $nom; ?></b></h5>
+            <p class="card-text text-post m-4"><?php echo $desc ?></p>
         </div>
 
 <?php } ?>

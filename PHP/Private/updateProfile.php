@@ -18,6 +18,7 @@
     $id = $sess->userId;
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : $sess->userName;
     $avatar = isset($_FILES['avatar']) ? $_FILES['avatar'] : $sess->userAvatar;
+    $desc = $_POST['desc'];
 
     if($avatar != $sess->userAvatar){
         $picName = $avatar['name'];
@@ -36,8 +37,8 @@
         }
     }
 
-    $res = $bdd->updateUser($id, $nombre, $picName);
+    $res = $bdd->updateUser($id, $nombre, $picName, $desc);
 
-    $sess->update($nombre, $picName);
+    $sess->update($nombre, $picName, $desc);
     echo '1';
 ?>

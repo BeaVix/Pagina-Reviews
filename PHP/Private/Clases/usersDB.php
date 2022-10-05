@@ -40,13 +40,14 @@
 		}
 
 		//Cambia los datos del usuario especificado por id
-		function updateUser($id, $nom, $avatar){
-			$sql = "UPDATE usuarios SET Nombre = :nombre, Avatar = :avatar WHERE id = :id";
+		function updateUser($id, $nom, $avatar, $desc){
+			$sql = "UPDATE usuarios SET Nombre = :nombre, Avatar = :avatar, Descripcion = :desc WHERE id = :id";
 
 			$stmt = $this->BDDCon->prepare($sql);
 			$stmt->bindParam(':id', $id);
 			$stmt->bindParam(':nombre', $nom);
 			$stmt->bindParam(':avatar', $avatar);
+			$stmt->bindParam(':desc', $desc);
 			$stmt->execute();
 
 			return $stmt;

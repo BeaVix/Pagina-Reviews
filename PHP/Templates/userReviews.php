@@ -25,16 +25,18 @@ foreach ($comms as $values) {
     $revID = $values['ID'];
 ?>
     <div class="col-sm">
-        <div class="card m-auto" style="width: 40rem;">
+        <div class="card m-auto mb-3" style="width: 40rem;">
             <div class="card-body">
                 <div class="d-flex mb-3">
                     <img src="<?php echo $avatarURL; ?>" class="card-img" alt="...">
                     <h5 class="card-title m-2"><b><?php echo $nom; ?></b></h5>
                     <div><?php echo starLoad($values['Cant_Estrellas']); ?></div>
-                    <div id="delete<?php echo $values['ID'] ?>" class="text-end delete"><i class="bx bx-trash fs-3" style="color:red"></i></div>
+                    <div id="delete<?php echo $values['ID'] ?>" class="position-absolute top-0 end-0 p-2 delete"><i class="bx bx-trash fs-3" style="color:red"></i></div>
                 </div>
                 <div class="card-body text-center"><?php echo $modo ? $values['libro_Titulo'] : $values['pelicula_Titulo']; ?></div>
-                <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' . $values['libro_Portada'] : 'Peliculas/' . $values['pelicula_Portada']; ?>" class="card-img-top card-img-poster" alt="...">
+                <div class="text-center pb-2">
+                    <img src="../../Resources/imgs/<?php echo $modo ? 'Libros/' . $values['libro_Portada'] : 'Peliculas/' . $values['pelicula_Portada']; ?>" class="card-img-top card-img-poster" alt="...">
+                </div>
                 <p class="card-text text-post"><?php echo $values['Comentario']; ?></p>
             </div>
 

@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
         if (editing) {
             let nom = document.querySelector('#nombre').value;
             let avatar = document.querySelector('#avatar').files[0];
-            sendProfileData(nom, avatar);
+            let desc = document.querySelector('#desc').value;
+            sendProfileData(nom, avatar, desc);
             edit.classList.replace('bx-save', 'bx-edit');
             editing = false;
         }else{

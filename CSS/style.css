@@ -34,6 +34,10 @@ body {
     color: black;
 }
 
+.nav-user-avatar{
+    border-radius: 50%;
+}
+
 /*Dropdown*/
 
 .dropdown-menu{
@@ -245,6 +249,7 @@ textarea:focus {
 .Poster{
     width: 14rem;
     height: 22rem;
+    align-items: center;
 }
 
 .userPerfil{
