@@ -15,4 +15,5 @@ Pagina de reviews de peliculas/libros para la clase del profe Alex.
 ```
 
 ## Configuración de la base de datos:
-Para el funcionamiento de la base de datos, importe el siguiente archivo a su base de datos:
+Para el funcionamiento de la base de datos, importe el siguiente archivo a su base de datos <code>IMPORT-TO-DATABASE/ReviewsBD.sql</code><br>
+Se encargara de importar todas las tablas necesarias y unas peliculas y libros de muestra. Por defecto no hay ningun usuario registrado, excepto el anonimo.
