@@ -13,8 +13,10 @@ async function signIn(){
     });
     let result = await response.text();
     if(result == '1'){
+        console.log(result);
         reloadNav();
     }else{
+        console.log(result);
     }
 }
 

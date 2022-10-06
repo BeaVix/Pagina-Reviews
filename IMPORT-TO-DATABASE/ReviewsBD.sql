@@ -183,7 +183,8 @@ CREATE TABLE `usuarios` (
   `Nombre` varchar(35) NOT NULL,
   `Email` varchar(35) NOT NULL,
   `Password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Avatar` varchar(255) DEFAULT NULL
+  `Avatar` varchar(255) DEFAULT NULL,
+  `Descripcion` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
