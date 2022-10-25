@@ -15,7 +15,7 @@ $avatarURL = isset($avatar) ? "../../Uploads/" . $nom . '/' . $avatar : "../../R
 ?>
 <div class=" p-5">
     <div id="perfil">
-        <?php include '../Templates/userProfile.php'; ?>
+        <?php include '../Templates/User/userProfile.php'; ?>
     </div>
     <div class="text-end">
         <i id='profile-edit' class="bx bx-edit fs-4"></i>
@@ -24,8 +24,8 @@ $avatarURL = isset($avatar) ? "../../Uploads/" . $nom . '/' . $avatar : "../../R
 
     <div id="perfil-reviews">
         <div id="reviews">
-            <?php include '../Templates/userReviews.php' ?>
+            <?php include '../Templates/User/userReviews.php' ?>
         </div>
     </div>
 </div>
-<script src="../../JS/editProfile.js"></script>
+<script src="../../JS/User/editProfile.js"></script>

@@ -7,11 +7,16 @@
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../CSS/style.css" type=" text/css" rel='stylesheet'>
     <link href="../../Resources/imgs/favicon.png" type="image/png" rel="icon">
 
+    <link href="../../CSS/style.css" type=" text/css" rel='stylesheet'>
+    <link href="../../CSS/navbar.css" type=" text/css" rel='stylesheet'>
+    <link href="../../CSS/forms.css" type=" text/css" rel='stylesheet'>
+    <link href="../../CSS/buttons.css" type=" text/css" rel='stylesheet'>
+    <link href="../../CSS/registerModal.css" type=" text/css" rel='stylesheet'>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../JS/deleteReply.js"></script>
+    <script src="../../JS/Replies/deleteReplies.js"></script>
     <title>Real ReView</title>
 </head>
 <body>

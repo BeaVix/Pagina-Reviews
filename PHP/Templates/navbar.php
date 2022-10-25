@@ -66,7 +66,7 @@
                     </li>
                     <?php 
                     }else{
-                        include 'userProfileBtn.php';
+                        include '../Templates/userProfileBtn.php';
                     } 
                     ?>
                 </ul>
@@ -94,5 +94,9 @@
     </div>
 </div>
 
-<script src="../../JS/main.js"></script>
-<script src="../../JS/AJAX.js"></script>
+<script src="../../JS/User/main.js"></script>
+<script src="../../JS/AJAX/login.js"></script>
+<script src="../../JS/AJAX/register.js"></script>
+<script src="../../JS/AJAX/replies.js"></script>
+<script src="../../JS/AJAX/review.js"></script>
+<script src="../../JS/AJAX/userUpdate.js"></script>

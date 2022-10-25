@@ -1,7 +1,7 @@
 <?php
   include $modo ? '../Private/Clases/librosDB.php' : '../Private/Clases/peliculasDB.php';
   include '../Private/Clases/reviewsDB.php';
-  include '../Private/starLoad.php';  
+  include '../Private/Review/starLoad.php';  
 ?>
 
 <div class="container text-center" id="reviews">
@@ -90,7 +90,7 @@
             <?php 
               $rew = $row['ID'];
               
-              include 'userComment.php';
+              include '../Templates/userComment.php';
             ?>
             </div>
           </div>
@@ -100,4 +100,4 @@
 ?>  
     </div>
 
-<script src="../../JS/starPicker.js"></script>
+<script src="../../JS/Review/starPicker.js"></script>

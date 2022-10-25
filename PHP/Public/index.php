@@ -3,7 +3,7 @@
     include '../Private/Clases/librosDB.php';
     include '../Private/Clases/peliculasDB.php';
     include '../Private/Clases/reviewsDB.php';
-    include_once '../Private/starLoad.php';
+    include_once '../Private/Review/starLoad.php';
     include_once '../Private/isLogged.php';
 
     use BDD\Tables\Peliculas;
@@ -69,7 +69,7 @@
                     <?php 
                         $revID = $res['ID']; 
                         
-                        include '../Templates/replies.php'; 
+                        include '../Templates/Replies/replies.php'; 
                     ?>
 
                     </div>
@@ -192,6 +192,4 @@
         </div>
     </div>
 </div>
-<?php 
-include '../Templates/footer.php';
-?>
+
