@@ -53,4 +53,4 @@ Cuenta con registro de usuarios, logueo, personalización de perfil, posteo de r
 ```
 
 ## Configuración de la base de datos:
-Importe archivo dentro de  <code>IMPORT-TO-DATABASE</code> a la base de datos para crear las tablas necesarias.
+Importe el archivo dentro de  <code>IMPORT-TO-DATABASE</code> a la base de datos para crear las tablas necesarias.
