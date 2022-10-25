@@ -1,0 +1,27 @@
+/*Formulario*/
+
+h1 {
+    color: #7c7c7c;
+    text-align: center;
+}
+
+hr{
+    border: 1px solid;
+}
+
+label {
+    color: #7c7c7c;
+}
+
+input[type=text], input[type=email], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: whitesmoke;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+    background-color: rgba(245, 245, 245, 0.822);
+    outline:1px solid #c7b6be;
+}
