@@ -1,0 +1,57 @@
+/*Nav*/
+
+.navbar {
+    background-color: #eba059;
+}
+
+.navbar a {
+    height: max-content;
+    cursor: pointer;
+    float: left;
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px 3px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar img {
+    height: 50px;
+    width:  50px;
+    padding: auto;
+}
+
+.nav-link:active {
+    border-bottom: rgba(0, 0, 0, 0.486);
+    color: black;
+}
+
+.nav-user-avatar{
+    border-radius: 50%;
+}
+
+/*Dropdown*/
+
+.dropdown-menu{
+    border: 1px solid #89abb4d0;
+}
+
+.dropdown-item{
+    width: 550px;
+    background-color: white;
+    z-index: 1050 !important;
+}
+.dropdown-item:hover{
+    background-color: white;
+}
+
+.dropdown-item:active{
+    background-color: white;
+}
+
+.rigth{
+    border-left-style: groove;
+    padding-top: 30px;
+}
