@@ -16,7 +16,7 @@
 
 		// Realiza una nueva connexión
 		protected function newConnection(){
-			include_once '../../Config/BDD_Config.php'; //Busca archivo en carpeta /Config
+			include_once dirname(__DIR__).'/../../Config/BDD_Config.php'; //Busca archivo en carpeta /Config
 			$conn = "mysql:dbname=".BDDNombre.";host=".BDDServer;
 			try{
 				$this->BDDCon = new PDO($conn, BDDUser, BDDPass, 
